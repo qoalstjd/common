@@ -1,0 +1,113 @@
+/* ==================== 여백 ==================== */
+.mt-0 { margin-top: 0 !important; } 
+.mt-4 { margin-top: 0.4rem !important; } 
+.mt-8 { margin-top: 0.8rem !important; } 
+.mt-12 { margin-top: 1.2rem !important; } 
+.mt-16 { margin-top: 1.6rem !important; } 
+.mt-20 { margin-top: 2.0rem !important; } 
+.mt-24 { margin-top: 2.4rem !important; } 
+.mt-28 { margin-top: 2.8rem !important; } 
+.mt-32 { margin-top: 3.2rem !important; } 
+.mt-36 { margin-top: 3.6rem !important; } 
+.ml-auto { margin-left: auto !important; } 
+.ml-8 { margin-left: 0.8rem !important; } 
+.ml-12 { margin-left: 1.2rem !important; } 
+.mb-0 { margin-bottom: 0 !important; } 
+.mb-8 { margin-bottom: 0.8rem !important; } 
+.my-8 { margin-top: 0.8rem !important; margin-bottom: 0.8rem !important; } 
+.my-12 { margin-top: 1.2rem !important; margin-bottom: 1.2rem !important; } 
+.my-24 { margin-top: 2.4rem !important; margin-bottom: 2.4rem !important; } 
+/* ==================== 모서리 곡률 ==================== */
+.r-0 { border-radius: 0 !important; } 
+.r-4 { border-radius: 0.4rem !important; } 
+.r-8 { border-radius: 0.8rem !important; } 
+.r-12 { border-radius: 1.2rem !important; } 
+.r-max { border-radius: 99rem !important; } 
+.r-t-0 { border-top-left-radius: 0 !important; border-top-right-radius: 0 !important; } 
+.r-b-0 { border-bottom-left-radius: 0 !important; border-bottom-right-radius: 0 !important; } 
+/* ==================== 패딩 ==================== */
+.pd-0 { padding: 0 !important; } 
+.pd-4 { padding: 0.4rem !important; } 
+.pd-8 { padding: 0.8rem !important; } 
+.pd-12 { padding: 1.2rem !important; } 
+.pd-16 { padding: 1.6rem !important; } 
+.pd-20 { padding: 2.0rem !important; } 
+.pd-24 { padding: 2.4rem !important; } 
+.pdx-32 { padding-left: 3.2rem !important; padding-right: 3.2rem !important; } 
+.pl-12 { padding-left: 1.2rem !important; } 
+.pl-24 { padding-left: 2.4rem !important; } 
+/* ==================== 보더 ==================== */
+/* 전체 */
+.bd-0 { border: 0 !important; } 
+.bd-1 { border: 0.1rem solid rgb(var(--brd-300)) !important; } 
+.bd-2 { border: 0.1rem solid rgb(var(--brd-300)) !important; } 
+.bt-0 { border-top: 0 !important; } 
+.br-0 { border-right: 0 !important; } 
+.bb-0 { border-bottom: 0 !important; } 
+.bl-0 { border-left: 0 !important; } 
+.bt-1 { border-top: 0.1rem solid rgb(var(--brd-300)) !important; } 
+.br-1 { border-right: 0.1rem solid rgb(var(--brd-300)) !important; } 
+.bb-1 { border-bottom: 0.1rem solid rgb(var(--brd-300)) !important; } 
+.bl-1 { border-left: 0.1rem solid rgb(var(--brd-300)) !important; } 
+.bd-solid { border-style: solid !important; } 
+.bd-dashed { border-style: dashed !important; } 
+.bd-dotted { border-style: dotted !important; } 
+/* ==================== 구분선 ==================== */
+i.hr { display: block; width: 100%; height: 0.1rem; background-color: rgb(var(--brd-300)); margin: 1.6rem 0; flex-shrink: 0; } 
+i.vr { display: block; width: 0.1rem; height: auto; min-height: 1.2rem; background-color: rgb(var(--brd-300)); flex-shrink: 0; } 
+/* ==================== 크기 ==================== */
+.w-full { width: 100%; } 
+.h-full { height: 100%; } 
+.w-100 { width: 10rem; } 
+.w-120 { width: 12rem; } 
+.w-auto { width: auto; } 
+.h-auto { height: auto; } 
+.h-10 { height: 1rem !important; } 
+.h-16 { height: 1.6rem !important; } 
+.h-40 { height: 4rem !important; } 
+.wh-12 { width: 1.2rem !important; height: 1.2rem !important; } 
+.wh-14 { width: 1.4rem !important; height: 1.4rem !important; } 
+.wh-16 { width: 1.6rem !important; height: 1.6rem !important; } 
+.wh-20 { width: 2rem !important; height: 2rem !important; } 
+.wh-24 { width: 2.4rem !important; height: 2.4rem !important; } 
+.wh-28 { width: 2.8rem !important; height: 2.8rem !important; } 
+.wh-32 { width: 3.2rem !important; height: 3.2rem !important; } 
+.wh-48 { width: 4.8rem !important; height: 4.8rem !important; } 
+.wh-80 { width: 8rem !important; height: 8rem !important; } 
+.wh-128 { width: 12.8rem !important; height: 12.8rem !important; } 
+/* Gap */
+.gap-0 { gap: 0 !important; } 
+.gap-4 { gap: 0.4rem !important; } 
+.gap-8 { gap: 0.8rem !important; } 
+.gap-12 { gap: 1.2rem !important; } 
+.gap-16 { gap: 1.6rem !important; } 
+.gap-20 { gap: 2.0rem !important; } 
+.gap-24 { gap: 2.4rem !important; } 
+/* oveflow */
+.of-v { overflow: visible !important; }
+.of-h { overflow: hidden !important; }
+.of-x { overflow-x: hidden !important; }
+.of-y { overflow-y: hidden !important; }
+/* ==================== FLEX ==================== */
+.flx { display: flex !important; flex-wrap: wrap; } 
+.flx.inline { display: inline-flex; } 
+.flx.col { flex-direction: column; align-items: stretch; } 
+.flx.col-fit > * { flex: 1; } 
+/* 정렬 */
+.ai-s { align-items: flex-start !important; } 
+.ai-c { align-items: center !important; } 
+.ai-e { align-items: flex-end !important; } 
+.jc-bt { justify-content: space-between !important; } 
+.jc-s { justify-content: flex-start !important; } 
+.jc-c { justify-content: center !important; } 
+.jc-e { justify-content: flex-end !important; } 
+/* Wrap */
+.flx-wrap { flex-wrap: wrap !important; } 
+.flx-nowrap { flex-wrap: nowrap !important; } 
+.flx-nowrap .ell-1 { flex: 1; width: auto; max-width: fit-content; } 
+/* ==================== GRID ==================== */
+.grid { display: grid !important; grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr)); } 
+.grid.min-120 { grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr)); } 
+.grid.min-240 { grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr)); } 
+.grid.min-280 { grid-template-columns: repeat(auto-fill, minmax(28rem, 1fr)); } 
+.grid.min-320 { grid-template-columns: repeat(auto-fill, minmax(32rem, 1fr)); } 

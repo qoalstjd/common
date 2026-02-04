@@ -1,0 +1,17 @@
+
+/* ==================== input ==================== */
+.inp { position: relative; } 
+.inp .ico-wrap { position: absolute; right: 0.8rem; top: 50%; transform: translateY(-50%); } 
+input[type="text"] { display: block; border: 0.1rem solid rgb(var(--brd-500)); border-radius: 0.4rem; padding: 0.4rem 0.8rem; font-size: 1.4rem; width: 100%; } 
+input[type="text"]:focus { border-color: rgb(var(--primary-500)); } 
+input[type="text"]::placeholder { font-size: 1.4rem; line-height: 2.1rem; color: rgb(var(--txt-300)); } 
+/* ==================== Progress ==================== */
+.progress { position:relative; width:100%; height:8px; } 
+.progress progress { width:100%; height:8px; -webkit-appearance:none; appearance:none; border-radius:999px; overflow:hidden; } 
+.progress progress::-webkit-progress-bar { background-color: rgb(var(--bg-200)); } 
+.progress progress::-webkit-progress-value { background-color: rgb(var(--primary-700)); } 
+.progress .range { position:absolute; left:0; top:50%; width:100%; height:16px; transform:translateY(-50%); background:transparent; -webkit-appearance:none; appearance:none; cursor:pointer; } 
+.progress .range::-webkit-slider-thumb { -webkit-appearance:none; appearance:none; width:14px; height:14px; border-radius:50%; background: rgb(var(--primary-500)); border: 0.2rem solid white; box-shadow:0 0 0 0.2rem rgba(0,0,0,.1); } 
+.progress .range::-moz-range-thumb { width:14px; height:14px; border-radius:50%; background: rgb(var(--primary-500)); border: 0.2rem solid white; } 
+.progress .range::-webkit-slider-runnable-track { background:transparent; } 
+.progress .range::-moz-range-track { background:transparent; } 
