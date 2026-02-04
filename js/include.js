@@ -122,6 +122,12 @@ const SPA = {
             .then((r) => (r.ok ? r.text() : Promise.reject(r.status)))
             .then((html) => {
                 this.main.innerHTML = html;
+                this.main.querySelectorAll('img').forEach(img => {
+                    const src = img.getAttribute("src");
+                    if (src.startsWith("/")) {
+                        img.src = window.BASE + src;
+                    }
+                })
                 window.scrollTo({ top: 0, behavior: "auto" });
                 if (route.lnb !== false) this.renderLNB(dep1Key);
                 this.setActive(params.linkcd);
