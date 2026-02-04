@@ -322,4 +322,35 @@
         <path d="M4.072 9.732l1.866 -1.232l.134 -2.232" />
         <path d="M3.34 7l5.629 3.25l2.99 -1.738" />
     </symbol>
+    <symbol id="ui-pool" viewBox="0 0 24 24">
+        <title>ui-pool</title>
+        <desc>수영장</desc>
+        <path d="M15 9a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+        <path d="M6 11l4 -2l3.5 3l-1.5 2" />
+        <path
+            d="M3 16.75a2.4 2.4 0 0 0 1 .25a2.4 2.4 0 0 0 2 -1a2.4 2.4 0 0 1 2 -1a2.4 2.4 0 0 1 2 1a2.4 2.4 0 0 0 2 1a2.4 2.4 0 0 0 2 -1a2.4 2.4 0 0 1 2 -1a2.4 2.4 0 0 1 2 1a2.4 2.4 0 0 0 2 1a2.4 2.4 0 0 0 1 -.25" />
+    </symbol>
+    <symbol id="ui-grill" viewBox="0 0 24 24">
+        <title>ui-grill</title>
+        <desc>그릴</desc>
+        <path d="M19 8h-14a6 6 0 0 0 6 6h2a6 6 0 0 0 6 -5.775l0 -.225" />
+        <path d="M17 20a2 2 0 1 1 0 -4a2 2 0 0 1 0 4" />
+        <path d="M15 14l1 2" />
+        <path d="M9 14l-3 6" />
+        <path d="M15 18h-8" />
+        <path d="M15 5v-1" />
+        <path d="M12 5v-1" />
+        <path d="M9 5v-1" />
+    </symbol>
+    <symbol id="ui-garden" viewBox="0 0 24 24">
+        <title>ui-garden</title>
+        <desc>정원</desc>
+        <path d="M16 5l3 3l-2 1l4 4l-3 1l4 4h-9" />
+        <path d="M15 21l0 -3" />
+        <path d="M8 13l-2 -2" />
+        <path d="M8 12l2 -2" />
+        <path d="M8 21v-13" />
+        <path
+            d="M5.824 16a3 3 0 0 1 -2.743 -3.69a3 3 0 0 1 .304 -4.833a3 3 0 0 1 4.615 -3.707a3 3 0 0 1 4.614 3.707a3 3 0 0 1 .305 4.833a3 3 0 0 1 -2.919 3.695h-4l-.176 -.005" />
+    </symbol>
 </svg>
