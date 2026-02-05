@@ -38,7 +38,7 @@ h4 { font-size: 2rem; }
 h5 { font-size: 1.8rem; } 
 h6 { font-size: 1.6rem; } 
 h1, h2, h3 { margin: 3.6rem 0 2.4rem; } 
-h4, h5, h6 { margin: 2.4rem 0 1.2rem; } 
+h4, h5, h6 { margin: 1.2rem 0 0.8rem; } 
 h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child, p:first-child { margin-top: 0; } 
 nav h1 { font-size: unset; margin: 0; } 
 span { display: inline; } 

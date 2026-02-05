@@ -106,9 +106,11 @@ html[data-theme="dark"] {
 }
 /* ==================== 폰트 ==================== */
 .txt-success { color: rgb(var(--success-500)); }; .txt-error { color: rgb(var(--error-500)); }; .txt-link { color: rgb(var(--link-500)); }; .txt-900 { color: rgb(var(--txt-900)) !important; } 
-.txt-700 { color: rgb(var(--txt-700)) !important; } 
-.txt-500 { color: rgb(var(--txt-500)) !important; } 
+.txt-100 { color: rgb(var(--txt-100)) !important; } 
 .txt-300 { color: rgb(var(--txt-300)) !important; } 
+.txt-500 { color: rgb(var(--txt-500)) !important; } 
+.txt-700 { color: rgb(var(--txt-700)) !important; } 
+.txt-900 { color: rgb(var(--txt-900)) !important; } 
 .txt-white { color: rgb(var(--txt-white)) !important; } 
 .txt-black { color: rgb(var(--txt-black)) !important; } 
 .txt-point { color: rgb(var(--primary-500)) !important; } 
@@ -124,4 +126,5 @@ html[data-theme="dark"] {
 .bg-400 { background-color: rgb(var(--bg-400)) !important; } 
 .bg-500 { background-color: rgb(var(--bg-500)) !important; } 
 .bg-700 { background-color: rgb(var(--bg-700)) !important; } 
+.bg-900 { background-color: rgb(var(--bg-900)) !important; } 
 .bg-point { background-color: rgb(var(--primary-500)) !important; } 
