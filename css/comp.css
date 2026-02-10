@@ -1,5 +1,13 @@
 /* ==================== 박스 ==================== */
+.ty-masonry .box { position: relative; min-height: 20vw; display: flex; flex-direction: column; } 
+.ty-masonry .box > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; } 
+.ty-masonry [class*="pc25"] { flex-basis: calc((100% - (var(--gap) * 3)) / 4); } 
+.ty-masonry [class*="pc33"] { flex-basis: calc((100% - (var(--gap) * 2)) / 3); } 
+.ty-masonry [class*="pc50"] { flex-basis: calc((100% - (var(--gap) * 1)) / 2); } 
+.ty-masonry [class*="pc66"] { flex-basis: calc((100% - (var(--gap) * 2)) / 3 * 2 + var(--gap)); } 
+.ty-masonry [class*="pc100"] { flex-basis: 100%; } 
 .box { display: block; border-radius: 0.8rem; padding: 1.6rem 2.4rem; background-color: rgb(var(--bg-300)); overflow: hidden; } 
+.box.line { background-color: rgb(var(--bg-000)); border: 0.1rem solid rgb(var(--brd-900)); } 
 a.box:hover { background-color: rgb(var(--bg-hover)) !important; } 
 /* ==================== 태그 ==================== */
 .tag-wrap { display: flex; gap: 8px; overflow-x: scroll; padding: 6px 0; cursor: grab; flex-wrap: nowrap; user-select: none; overscroll-behavior-x: contain; } 
@@ -17,16 +25,16 @@ a.box:hover { background-color: rgb(var(--bg-hover)) !important; }
 .tag.component { background-color: rgb(var(--tag-component)); } 
 .tag.project { background-color: rgb(var(--tag-project)); } 
 .tag.retrospective { background-color: rgb(var(--tag-retrospective)); } 
-.tag.firebase { background-color: rgb(var(--tag-firebase)); }
+.tag.firebase { background-color: rgb(var(--tag-firebase)); } 
 /* ==================== 아이콘 ==================== */
 .ico-wrap { display: flex; align-items: center; gap: 0.4rem; border-radius: 0.4rem; } 
 button.ico-wrap:hover,
-a.ico-wrap:hover { background-color: rgb(var(--bg-hover)); }
-.ico-wrap svg { width: 2.4rem; height: 2.4rem; }
-html[data-theme="dark"]  .ico-wrap use[href$="#ui-sun"]  { display: none; }
-html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; }
-[data-sort="asc"]  use[href$="#dir-caret-down"] { display: none; }
-[data-sort="desc"] use[href$="#dir-caret-up"]  { display: none; }
+a.ico-wrap:hover { background-color: rgb(var(--bg-hover)); } 
+.ico-wrap svg { width: 2.4rem; height: 2.4rem; } 
+html[data-theme="dark"] .ico-wrap use[href$="#ui-sun"] { display: none; } 
+html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; } 
+[data-sort="asc"] use[href$="#dir-caret-down"] { display: none; } 
+[data-sort="desc"] use[href$="#dir-caret-up"] { display: none; } 
 /* ==================== 툴팁 ==================== */
 [data-tip] { position: relative; } 
 [data-tip]::after { display: none; content: attr(data-tip); position: absolute; top: calc(100% + 4px); left: 50%; transform: translateX(-50%); width: fit-content; white-space: nowrap; background-color: rgb(var(--bg-100)); border: 1px solid rgb(var(--brd-500)); padding: 5px 7px; border-radius: 4px; font-size: 1.2rem; font-weight: 700; z-index: 10; color: rgb(var(--txt-700)); } 
@@ -37,9 +45,9 @@ html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; }
 .btn-wrap { display: flex; align-items: center; gap: 0.6rem; margin-top: 4rem; } 
 .btn-wrap .btn { min-width: 10rem; } 
 .btn { display: inline-flex; justify-content: center; align-items: center; gap: 0.4rem; padding: 0 1.2rem; border-radius: 0.4rem; font-weight: 700; background-color: rgb(var(--bg-400)); } 
-.btn:hover { background-color: rgb(var(--bg-hover)); }
-.btn.line { border: 0.1rem solid rgb(var(--brd-900)); background: none; }
-.btn.line:hover { background-color: rgb(var(--bg-hover)); }
+.btn:hover { background-color: rgb(var(--bg-hover)); } 
+.btn.line { border: 0.1rem solid rgb(var(--brd-900)); background: none; } 
+.btn.line:hover { background-color: rgb(var(--bg-hover)); } 
 .btn:disabled { opacity: 0.5; } 
 .btn.xs { height: 2.4rem; padding: 0 0.8rem; font-size: 1.2rem; } 
 .btn.sm { height: 3.2rem; padding: 0 1rem; font-size: 1.4rem; } 
@@ -52,13 +60,15 @@ html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; }
 .link:hover { text-decoration: underline; } 
 .link::after { content: ''; position: absolute; right: 0; top: calc(50% - 0.8rem); display: block; width: 1.6rem; height: 1.6rem; background-color: currentColor; mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.667 3l9.587 8.628a.5.5 0 010 .744L6.667 21' stroke='%23000' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center / 1.2rem; } 
 /* ==================== 탭 ==================== */
-.tab-wrap { display: flex; align-items: center; width: 100%; margin: 1.6rem 0 1.2rem; border-radius: 0.6rem; background-color: rgb(var(--bg-100)); padding: 0.2rem; } 
+.tab-wrap { display: flex; align-items: center; width: 100%; margin: 1.6rem 0 1.2rem; border-radius: 0.6rem; background-color: rgb(var(--bg-200)); padding: 0.2rem; } 
 .tab-wrap:first-child { margin-top: 0; } 
 .tab-wrap button { position: relative; flex: 1; padding: 0.2rem 0.4rem; font-size: 1.4rem; font-weight: 600; color: rgb(var(--txt-700)); z-index: 1; overflow: hidden; } 
 .tab-wrap button:first-child { border-radius: 0.4rem 0 0 0.4rem; } 
 .tab-wrap button:last-child { border-radius: 0 0.4rem 0.4rem 0; } 
-.tab-wrap button.is-active { background-color: rgb(var(--bg-200)); color: rgb(var(--primary-500)); } 
+.tab-wrap button.is-active { background-color: rgb(var(--bg-300)); color: rgb(var(--primary-500)); } 
 .tab-wrap button.is-active::before { width: 100%; right: unset; left: 0; } 
+.tab-wrap.lg { margin: 3.6rem 0 2.4rem; }
+.tab-wrap.lg button { padding: 0.6rem; font-size: 1.6rem; }
 /* ==================== 표 ==================== */
 .tb-wrap { overflow: hidden; margin-top: 1.2rem; } 
 .tb-wrap table { margin-left: -0.1rem; border-bottom: 0.1rem solid rgb(var(--brd-300)); font-size: 1.4rem; } 
@@ -93,6 +103,13 @@ html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; }
 .txt-list.num { counter-reset: num; } 
 .txt-list.num li { padding-left: 2rem; } 
 .txt-list.num li::before { content: counter(num)'.'; counter-increment: num 1; } 
+/* 메타 */
+.meta-list { max-width: 102.4rem; margin: 0 auto; } 
+.meta-list > li { display: flex; width: 100%; align-items: center; flex-wrap: nowrap; gap: 1.2rem; padding: 1.2rem 2.4rem; white-space: nowrap; border-bottom: 0.1rem solid rgb(var(--brd-500)); } 
+.meta-list > li:hover { background-color: rgb(var(--bg-hover)); } 
+/* ID, Tag, Title, Date, */
+.meta-list > li .date { color: rgb(var(--txt-700)); } 
+.meta-list > li .title { flex: 1; text-overflow: ellipsis; overflow: hidden; font-weight: 600; } 
 /* ==================== 로딩 ==================== */
 .loading { position: relative; } 
 .loading * { display: none !important; } 
@@ -139,11 +156,13 @@ html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; }
 .dialog button { cursor: pointer; } 
 .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: rgb(var(--bg-300)); padding: 10px 16px; border-radius: 20px; } 
 /* ==================== 따옴 ==================== */
-.quote { margin: 1.2rem 0; padding: 0.8rem 1.2rem; border-left: 0.4rem solid rgb(var(--primary-300)); background:rgb(var(--bg-300)); border-radius:0.8rem; } 
+.quote { display: flex; flex-direction: column; margin: 1.2rem 0; padding: 0.8rem 1.2rem; border-left: 0.4rem solid rgb(var(--primary-300)); background:rgb(var(--bg-300)); border-radius:0.8rem; } 
 .quote:first-child { margin-top: 0; } 
 .quote blockquote { font-size: 1.4rem; } 
 .quote figcaption { margin-top:0.2rem; font-size:1.2rem; color: rgb(var(--txt-700)); } 
 
-@media screen and (max-width: 768px){
- .dialog { max-height: unset; width: 100dvw !important; height: 100dvh; } 
+@media screen and (max-width: 767px){
+ .dialog { max-height: unset; width: 100vw !important; height: 100vh; } 
+.box-wrap.ty-masonry { flex-direction: column; } 
+.box-wrap.ty-masonry > * { flex-basis: 100%; } 
  }

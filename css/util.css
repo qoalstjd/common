@@ -43,16 +43,16 @@
 /* ==================== 보더 ==================== */
 /* 전체 */
 .bd-0 { border: 0 !important; } 
-.bd-1 { border: 0.1rem solid rgb(var(--brd-300)) !important; } 
-.bd-2 { border: 0.1rem solid rgb(var(--brd-300)) !important; } 
+.bd-1 { border: 0.1rem solid rgb(var(--brd-500)) !important; } 
+.bd-2 { border: 0.1rem solid rgb(var(--brd-500)) !important; } 
 .bt-0 { border-top: 0 !important; } 
 .br-0 { border-right: 0 !important; } 
 .bb-0 { border-bottom: 0 !important; } 
 .bl-0 { border-left: 0 !important; } 
-.bt-1 { border-top: 0.1rem solid rgb(var(--brd-300)) !important; } 
-.br-1 { border-right: 0.1rem solid rgb(var(--brd-300)) !important; } 
-.bb-1 { border-bottom: 0.1rem solid rgb(var(--brd-300)) !important; } 
-.bl-1 { border-left: 0.1rem solid rgb(var(--brd-300)) !important; } 
+.bt-1 { border-top: 0.1rem solid rgb(var(--brd-500)) !important; } 
+.br-1 { border-right: 0.1rem solid rgb(var(--brd-500)) !important; } 
+.bb-1 { border-bottom: 0.1rem solid rgb(var(--brd-500)) !important; } 
+.bl-1 { border-left: 0.1rem solid rgb(var(--brd-500)) !important; } 
 .bd-solid { border-style: solid !important; } 
 .bd-dashed { border-style: dashed !important; } 
 .bd-dotted { border-style: dotted !important; } 
