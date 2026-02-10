@@ -1,5 +1,5 @@
 /* ==================== 박스 ==================== */
-.ty-masonry { --gap: 2rem; gap: var(--gap); }
+.ty-masonry { --gap: 2rem; gap: var(--gap); } 
 .ty-masonry .box { position: relative; min-height: 20vw; display: flex; flex-direction: column; } 
 .ty-masonry .box > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; } 
 .ty-masonry [class*="pc25"] { flex-basis: calc((100% - (var(--gap) * 3)) / 4); } 
@@ -68,8 +68,8 @@ html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; }
 .tab-wrap button:last-child { border-radius: 0 0.4rem 0.4rem 0; } 
 .tab-wrap button.is-active { background-color: rgb(var(--bg-300)); color: rgb(var(--primary-500)); } 
 .tab-wrap button.is-active::before { width: 100%; right: unset; left: 0; } 
-.tab-wrap.lg { margin: 3.6rem 0 2.4rem; }
-.tab-wrap.lg button { padding: 0.6rem; font-size: 1.6rem; }
+.tab-wrap.lg { margin: 3.6rem 0 2.4rem; } 
+.tab-wrap.lg button { padding: 0.6rem; font-size: 1.6rem; } 
 /* ==================== 표 ==================== */
 .tb-wrap { overflow: hidden; margin-top: 1.2rem; } 
 .tb-wrap table { margin-left: -0.1rem; border-bottom: 0.1rem solid rgb(var(--brd-300)); font-size: 1.4rem; } 
@@ -166,6 +166,6 @@ html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; }
 
 @media screen and (max-width: 767px){
  .dialog { max-height: unset; width: 100vw !important; height: 100vh; } 
-.box-wrap.ty-masonry { flex-direction: column; } 
-.box-wrap.ty-masonry > * { flex-basis: 100%; } 
+.ty-masonry { flex-direction: column; } 
+.ty-masonry > * { flex-basis: 100%; } 
  }
