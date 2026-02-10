@@ -96,7 +96,7 @@ i.vr { display: block; width: 0.1rem; height: auto; min-height: 1.2rem; backgrou
 .flx { display: flex !important; flex-wrap: wrap; } 
 .flx.inline { display: inline-flex; } 
 .flx.col { flex-direction: column; align-items: stretch; } 
-.flx.col-fit > * { flex: 1; } 
+.flx.col-fit > * { flex: 1; min-width: 0; } 
 /* 정렬 */
 .ai-s { align-items: flex-start !important; } 
 .ai-c { align-items: center !important; } 

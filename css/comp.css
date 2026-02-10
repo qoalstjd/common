@@ -78,10 +78,12 @@ html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; }
 .tb-wrap table th,
 .tb-wrap table td { border: solid rgb(var(--brd-300)); border-width: 0.1rem 0 0 0.1rem; padding: 0.8rem 0.8rem; } 
 .tb-wrap table thead th { background-color: rgb(var(--bg-900)); color: rgb(var(--txt-100)); } 
+.tb-wrap table tbody th { background-color: rgb(var(--bg-100)); }
 .tb-wrap table tbody td { color: rgb(var(--txt-700)); } 
 .tb-wrap.ty-row table thead th { color: rgb(var(--txt-900)); } 
 .tb-wrap.ty-row th,
 .tb-wrap.ty-row td { border-width: 0.1rem 0 0 0; background: unset; padding: 0.6rem 0.8rem; } 
+.tb-wrap .txt-list { margin-top: 0; }
 /* ==================== 목록 ==================== */
 .txt-list { margin-top: 1.6rem; } 
 .txt-list li { position: relative; font-weight: 400; word-break: break-all; padding-left: 0.8rem; } 
@@ -112,7 +114,7 @@ html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; }
 .meta-list > li .category { display: flex; justify-content: center; align-items: center; gap: 0.4rem; min-width: 7.2rem; } 
 .meta-list > li .title { flex: 1; text-overflow: ellipsis; overflow: hidden; font-weight: 600; } 
 .meta-list > li .date { color: rgb(var(--txt-700)); font-feature-settings: "tnum"; } 
-.meta-list > li .view { color: rgb(var(--txt-700)); font-feature-settings: "tnum"; min-width: 3rem; } 
+.meta-list > li .view { color: rgb(var(--txt-700)); font-feature-settings: "tnum"; min-width: 3rem; text-align: center; } 
 /* ==================== 로딩 ==================== */
 .loading { position: relative; } 
 .loading * { display: none !important; } 
