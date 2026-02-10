@@ -1,4 +1,5 @@
 /* ==================== 박스 ==================== */
+.ty-masonry { --gap: 2rem; gap: var(--gap); }
 .ty-masonry .box { position: relative; min-height: 20vw; display: flex; flex-direction: column; } 
 .ty-masonry .box > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; } 
 .ty-masonry [class*="pc25"] { flex-basis: calc((100% - (var(--gap) * 3)) / 4); } 
@@ -105,11 +106,13 @@ html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; }
 .txt-list.num li::before { content: counter(num)'.'; counter-increment: num 1; } 
 /* 메타 */
 .meta-list { max-width: 102.4rem; margin: 0 auto; } 
-.meta-list > li { display: flex; width: 100%; align-items: center; flex-wrap: nowrap; gap: 1.2rem; padding: 1.2rem 2.4rem; white-space: nowrap; border-bottom: 0.1rem solid rgb(var(--brd-500)); } 
+.meta-list > li { display: flex; width: 100%; align-items: center; flex-wrap: nowrap; gap: 1.2rem; padding: 1.2rem 2.4rem; white-space: nowrap; border-bottom: 0.1rem solid rgb(var(--brd-500)); cursor: pointer; } 
 .meta-list > li:hover { background-color: rgb(var(--bg-hover)); } 
-/* ID, Tag, Title, Date, */
-.meta-list > li .date { color: rgb(var(--txt-700)); } 
+/* ID, Category, Tag, Title, Date, */
+.meta-list > li .category { display: flex; justify-content: center; align-items: center; gap: 0.4rem; min-width: 7.2rem; } 
 .meta-list > li .title { flex: 1; text-overflow: ellipsis; overflow: hidden; font-weight: 600; } 
+.meta-list > li .date { color: rgb(var(--txt-700)); font-feature-settings: "tnum"; } 
+.meta-list > li .view { color: rgb(var(--txt-700)); font-feature-settings: "tnum"; min-width: 3rem; } 
 /* ==================== 로딩 ==================== */
 .loading { position: relative; } 
 .loading * { display: none !important; } 
