@@ -392,6 +392,51 @@
         <path d="M3 10h14v5a6 6 0 0 1 -6 6h-2a6 6 0 0 1 -6 -6v-5" />
         <path d="M16.746 16.726a3 3 0 1 0 .252 -5.555" />
     </symbol>
+    <symbol id="ui-lamp" viewBox="0 0 24 24">
+        <title>ui-lamp</title>
+        <desc>조명</desc>
+        <path d="M9 20h6" />
+        <path d="M12 20v-8" />
+        <path d="M5 12h14l-4 -8h-6l-4 8" />
+    </symbol>
+    <symbol id="ui-speed" viewBox="0 0 24 24">
+        <title>ui-speed</title>
+        <desc>속도</desc>
+        <path d="M5.636 19.364a9 9 0 1 1 12.728 0" />
+        <path d="M16 9l-4 4" />
+    </symbol>
+    <symbol id="ui-thumb-up" viewBox="0 0 24 24">
+        <title>ui-thumb-up</title>
+        <desc>엄지</desc>
+        <path
+            d="M7 11v8a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1v-7a1 1 0 0 1 1 -1h3a4 4 0 0 0 4 -4v-1a2 2 0 0 1 4 0v5h3a2 2 0 0 1 2 2l-1 5a2 3 0 0 1 -2 2h-7a3 3 0 0 1 -3 -3" />
+    </symbol>
+    <symbol id="ui-smile" viewBox="0 0 24 24">
+        <title>ui-smile</title>
+        <desc>웃음</desc>
+        <path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+        <path d="M9 10l.01 0" />
+        <path d="M15 10l.01 0" />
+        <path d="M9.5 15a3.5 3.5 0 0 0 5 0" />
+    </symbol>
+    <symbol id="ui-wide" viewBox="0 0 24 24">
+        <title>ui-wide</title>
+        <desc>확장</desc>
+        <path d="M10 12h-7l3 -3" />
+        <path d="M6 15l-3 -3" />
+        <path d="M14 12h7l-3 -3" />
+        <path d="M18 15l3 -3" />
+        <path d="M3 6v-1a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v1" />
+        <path d="M3 18v1a2 2 0 0 0 2 2h14a2 2 0 0 0 2 -2v-1" />
+    </symbol>
+    <symbol id="ui-users" viewBox="0 0 24 24">
+        <title>ui-users</title>
+        <desc>사용자들</desc>
+        <path d="M5 7a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+        <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+        <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
+    </symbol>
     <!-- ==================== 플랫폼 ==================== -->
     <symbol id="platform-naver" viewBox="0 0 24 24">
         <title>platform-naver</title>
