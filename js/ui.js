@@ -145,6 +145,35 @@ const ui = {
             el.classList.toggle("is-active");
         },
     },
+    accordion: {
+        init() {
+            document.addEventListener("click", (e) => {
+                this.btn = e.target.closest(".acc-btn");
+                if (!this.btn) return;
+                this.item = this.btn.closest(".acc-item");
+                this.panel = this.item.querySelector(".acc-panel");
+
+                // 다른거 닫기 (한개만 열림)
+                // this.wrap.querySelectorAll(".acc-item.is-open").forEach((el) => {
+                //     el.classList.remove("is-open");
+                //     el.querySelector(".acc-panel").style.maxHeight = null;
+                // });
+                this.toggle();
+            });
+        },
+        toggle() {
+            const isOpen = this.item.classList.contains("is-active");
+            if (isOpen) {
+                this.item.classList.remove("is-active");
+                this.panel.style.height = 0;
+            } else {
+                const offset = 24;
+
+                this.item.classList.add("is-active");
+                this.panel.style.height = this.panel.scrollHeight + offset + "px";
+            }
+        }
+    },
     dropdown: {
         setupDropdown(dropdown) {
             const label = dropdown.querySelector(".dropdown-label");
@@ -415,7 +444,7 @@ const dialog = {
             opener?.focus();
             onClose?.();
             document.removeEventListener("keydown", escClose);
-            
+
             if (!this.stack.length) ui.scrollLock.unlock();
             this.syncDim();
         };

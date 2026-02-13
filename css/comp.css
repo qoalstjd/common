@@ -114,6 +114,15 @@ html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; }
 .meta-list > li .title { flex: 1; text-overflow: ellipsis; overflow: hidden; font-weight: 600; } 
 .meta-list > li .date { color: rgb(var(--txt-700)); font-feature-settings: "tnum"; } 
 .meta-list > li .view { color: rgb(var(--txt-700)); font-feature-settings: "tnum"; min-width: 3rem; text-align: center; } 
+/* ==================== 아코디언 ==================== */
+.acc-item + .acc-item .acc-btn { border-top-color: transparent; }
+.acc-item.is-active + .acc-item .acc-btn { border-top-color: rgb(var(--brd-500)); }
+.acc-item .acc-btn { position: relative; width: 100%; padding: 1.2rem 3.6rem 1.2rem 1.2rem; text-align: left; font-size: 1.6rem; font-weight: 600; border-bottom: 0.1rem solid rgb(var(--brd-500)); border-top: 0.1rem solid rgb(var(--brd-500)); }
+.acc-item.is-active .acc-btn { border-bottom-color: rgb(var(--brd-500)); }
+.acc-item .acc-btn::before { content: ""; display: block; width: 2rem; height: 2rem; position: absolute; right: 0.8rem; top: calc(50% - 1rem); mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-color: rgb(var(--txt-900)); transition: transform 0.3s ease-in-out; }
+.acc-item.is-active .acc-btn::before { transform: scaleY(-1); }
+.acc-item .acc-panel { overflow: auto; height: 0; transition: all 0.5s ease-in-out; padding: 0 1.2rem; margin: 0; background-color: rgb(var(--bg-200)); }
+.acc-item.is-active .acc-panel { padding: 1.2rem 1.2rem; margin: 1.2rem 0; }
 /* ==================== 로딩 ==================== */
 .loading { position: relative; } 
 .loading * { display: none !important; } 
@@ -165,6 +174,7 @@ html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; }
 @media screen and (max-width: 767px) {.dialog { max-height: unset; width: 100vw !important; height: 100vh; } 
 .ty-masonry { flex-direction: column; } 
 .ty-masonry > * { flex-basis: 100%; } 
+.ty-masonry .box > img { position: static; height: auto; } 
 .meta-list li { flex-wrap: wrap; gap: 0.2rem 0.4rem; } 
 .meta-list li .id { display: none; } 
 .meta-list li .category { justify-content: flex-start; } 
