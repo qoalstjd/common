@@ -10,6 +10,7 @@ const ui = {
             this._inited = true;
             ui.btn.init();
             ui.tab.init();
+            ui.accordion.init();
         },
     },
     page: {
