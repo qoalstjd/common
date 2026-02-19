@@ -173,7 +173,7 @@ const ui = {
                 this.item.classList.add("is-active");
                 this.panel.style.height = this.panel.scrollHeight + offset + "px";
             }
-        }
+        },
     },
     dropdown: {
         setupDropdown(dropdown) {
@@ -469,7 +469,7 @@ const dialog = {
 
         document.addEventListener("keydown", escClose);
         parent.append(pop);
-        this.bindScripts(pop);
+        this.loadModule(url, data, pop);
         this.stack.push({ pop, dimEl, close });
         ui.scrollLock.lock();
         this.trapFocus(pop);
@@ -518,13 +518,26 @@ const dialog = {
             }
         };
     },
-    bindScripts(root) {
-        root.querySelectorAll("script").forEach((s) => {
-            const ns = document.createElement("script");
-            [...s.attributes].forEach((a) => ns.setAttribute(a.name, a.value));
-            ns.textContent = s.textContent;
-            s.replaceWith(ns);
-        });
+    loadModule(url, params, root) {
+        if (!url) return;
+        const jsPath = `${window.BASE}${url.replace(/\.html$/, ".js")}?t=${Date.now()}`;
+        const existing = document.querySelector(`script[data-page="${url}"]`);
+        if (existing) existing.remove();
+        const script = document.createElement("script");
+        script.type = "module";
+        script.src = jsPath;
+        script.dataset.page = url;
+        script.onload = () => {
+            if (window.initModule) {
+                window.initModule({ root, params });
+                delete window.initModule;
+            }
+        };
+        script.onerror = (e) => {
+            console.error("Failed to load script:", jsPath, e);
+        };
+
+        document.body.appendChild(script);
     },
 };
 
