@@ -55,6 +55,7 @@ html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; }
 .btn.md { height: 4rem; padding: 0 1.6rem; font-size: 1.6rem; } 
 .btn.lg { height: 4.8rem; padding: 0 2rem; font-size: 2rem; } 
 .btn.xl { height: 5.6rem; padding: 0 2.4rem; font-size: 2rem; } 
+.btn.bg-point { color: rgb(var(--txt-100)); }
 .ico[data-act]:hover { background-color: rgb(var(--bg-hover)); } 
 /* ==================== 링크 ==================== */
 .link { position: relative; padding-right: 1.8rem; color: rgb(var(--link-500)); word-break: break-all; } 

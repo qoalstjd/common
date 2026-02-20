@@ -8,11 +8,6 @@
                 stroke-linecap: round;
                 stroke-linejoin: round;
             }
-
-            .bulb {
-                fill: rgb(var(--primary-500));
-                stroke: none;
-            }
         </style>
     </defs>
     <!-- ==================== 로고 ==================== -->
