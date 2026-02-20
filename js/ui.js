@@ -421,14 +421,14 @@ const ui = {
 const dialog = {
     stack: [],
     z: 1000,
-    async open({ url, data = {}, parent = document.body, dim = true, esc = true, opener = document.activeElement, onClose } = {}) {
+    async open({ url, data = {}, size = "md", parent = document.body, dim = true, esc = true, opener = document.activeElement, onClose } = {}) {
         if (!url) return;
 
         const res = await fetch(url);
         const html = await res.text();
 
-        const pop = document.createElement("div");
-        pop.className = "dialog md";
+        const pop = document.createElement("article");
+        pop.className = "dialog " + size;
         pop.style.zIndex = ++this.z;
         pop.innerHTML = html;
 
