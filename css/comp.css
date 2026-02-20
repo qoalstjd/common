@@ -55,7 +55,11 @@ html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; }
 .btn.md { height: 4rem; padding: 0 1.6rem; font-size: 1.6rem; } 
 .btn.lg { height: 4.8rem; padding: 0 2rem; font-size: 2rem; } 
 .btn.xl { height: 5.6rem; padding: 0 2.4rem; font-size: 2rem; } 
-.btn.bg-point { color: rgb(var(--txt-100)); }
+.btn.bg-point,
+.btn.bg-red,
+.btn.bg-green,
+.btn.bg-900,
+.btn.bg-700 { color: rgb(var(--txt-100)); }
 .ico[data-act]:hover { background-color: rgb(var(--bg-hover)); } 
 /* ==================== 링크 ==================== */
 .link { position: relative; padding-right: 1.8rem; color: rgb(var(--link-500)); word-break: break-all; } 
@@ -107,6 +111,11 @@ html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; }
 .txt-list.num { counter-reset: num; } 
 .txt-list.num li { padding-left: 2rem; } 
 .txt-list.num li::before { content: counter(num)'.'; counter-increment: num 1; } 
+/* 정의 */
+.def-list { font-weight: 400; word-break: break-all; display: flex; flex-direction: column; gap: 0.2rem; } 
+.def-list > div { display: flex; align-items: flex-start; gap: 0.4rem; } 
+.def-list dt { color: rgb(var(--txt-700)) };.def-list dt ~ dt { margin-left: 0.4rem; } 
+.def-list dd { flex: 1; } 
 /* 메타 */
 .meta-list > li { display: flex; width: 100%; align-items: center; flex-wrap: nowrap; gap: 0.2rem 1.2rem; padding: 1.2rem 2.4rem; white-space: nowrap; border-bottom: 0.1rem solid rgb(var(--brd-500)); cursor: pointer; } 
 .meta-list > li:hover { background-color: rgb(var(--bg-hover)); } 
