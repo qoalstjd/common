@@ -2,7 +2,8 @@
 *::before,
 *::after { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; } 
 html { font-size: 62.5%; width: 100%; background: rgb(var(--bg-000)); scroll-behavior: smooth; } 
-@media (max-width: 360px) {html {font-size: 2.777777777777778vw; } }
+@media (max-width: 360px) { html { font-size: 2.777777777777778vw; } 
+ } 
 body { width: 100%; min-height: 100vh; color: rgb(var(--txt-900)); word-break: keep-all; overflow-wrap: break-word; -webkit-text-size-adjust: 100%; font: 400 1.6rem/1.5 "Pretendard","AppleSDGothicNeo","Helvetica Neue",sans-serif; } 
 /* ==================== DISPLAY ==================== */
 article, aside, canvas, details, figcaption, figure,
@@ -13,7 +14,7 @@ cite,em,dfn,address,i { font-style: normal; }
 blockquote,q { quotes: none; } 
 del { text-decoration: line-through; } 
 /* ==================== INPUT ==================== */
-input[type="text"] { outline: none; }
+input[type="text"] { outline: none; } 
 /* ==================== LIST ==================== */
 ul,ol,li { list-style: none; } 
 /* ==================== MEDIA ==================== */
@@ -23,9 +24,13 @@ input,select,textarea,button { border: 0; background: none; appearance: none; fo
 textarea { resize: vertical; } 
 button,label { cursor: pointer; } 
 input::placeholder { color: rgba(var(--txt-900), .5); } 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active { -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: rgb(var(--txt-900)); } 
 /* ==================== TABLE ==================== */
 table { width: 100%; border-spacing: 0; table-layout: fixed; } 
-table td, table th { color: rgb(var(--txt-900)); line-height: 1.5; }
+table td, table th { color: rgb(var(--txt-900)); line-height: 1.5; } 
 /* ==================== LINK ==================== */
 a { color: inherit; text-decoration: none; user-select: none; } 
 /* ==================== HIDDEN ==================== */
@@ -34,4 +39,4 @@ legend,caption { position: absolute; width: 0.1rem; height: 0.1rem; overflow: hi
 /* ==================== SCROLL ==================== */
 ::-webkit-scrollbar { width: 4px; height: 4px; } 
 ::-webkit-scrollbar-thumb { background: rgba(var(--txt-300)); border-radius: 4px; } 
-::selection { background-color: rgb(var(--primary-500)); }
+::selection { background-color: rgb(var(--primary-500)); } 
