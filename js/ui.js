@@ -259,7 +259,7 @@ const ui = {
         if (navigator.clipboard) {
             navigator.clipboard
                 .writeText(text)
-                .then(() => alert("Email address copied."))
+                .then(() => alert("클립보드에 복사되었습니다."))
                 .catch(fallback);
         } else {
             fallback();
@@ -274,9 +274,9 @@ const ui = {
             t.select();
             try {
                 const ok = document.execCommand("copy");
-                alert(ok ? "Copied!" : "Copy failed.");
+                alert(ok ? "클립보드에 복사되었습니다." : "복사에 실패했습니다.");
             } catch {
-                alert("Error copying.");
+                alert("복사에 실패했습니다.");
             }
             document.body.removeChild(t);
         }
