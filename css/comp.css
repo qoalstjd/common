@@ -57,7 +57,7 @@ html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; }
 .btn.bg-900,
 .btn.bg-700 { color: rgb(var(--txt-white)); } 
 .btn:hover::before,
-.ico-wrap:hover::before { content: ""; position: absolute; inset: 0; border-radius: 0.4rem; background-color: rgba(var(--bg-100), 0.1); } 
+.ico-wrap:hover::before { content: ""; position: absolute; inset: 0; border-radius: 0.4rem; background-color: rgba(var(--bg-100), 0.2); } 
 /* ==================== 링크 ==================== */
 .link { position: relative; padding-right: 1.8rem; color: rgb(var(--link-500)); word-break: break-all; } 
 .link:hover { text-decoration: underline; } 
@@ -201,7 +201,9 @@ html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; }
 .md-content a:hover { text-decoration: underline; } 
 /* Lists */
 .md-content ul,
-.md-content ol { list-style: initial; margin: 1em 0; padding-left: 1.5em; } 
+.md-content ol { margin: 0.8rem 0; padding-left: 2.2rem; } 
+.md-content ul { list-style: disc; }
+.md-content ol { list-style: num; }
 .md-content li { margin: 0.4em 0; } 
 /* Blockquote */
 .md-content blockquote { margin: 1.5em 0; padding: 0.8em 1em; border-left: 0.4rem solid rgb(var(--brd-500)); background: rgb(var(--bg-100)); color: rgb(var(--txt-700)); } 
