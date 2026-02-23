@@ -138,31 +138,6 @@ html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; }
  0% { transform: rotate(0deg); } 
 100% { transform: rotate(360deg); } 
  }
-/* ==================== 모달 ==================== */
-.modal-wrap { position: fixed; left: 0; top: 0; width: 100%; background: none; height: 100%; z-index: 100; display: flex; align-items: center; justify-content: center; } 
-.modal-wrap .modal-bg { position: absolute; width: 100%; height: 100%; left: 0; top: 0; animation: modalBgOpen 0.5s ease-in-out 0s forwards; } 
-.modal-wrap .modal { background-color: var(--bg_primary); width: 50rem; max-height: 90dvh; border-radius: 0.8rem; border: 0.1rem solid var(--brd_type01); padding: 2.4rem 2.4rem 3.2rem; display: grid; grid-template-rows: auto 1fr; grid-template-columns: auto; gap: 1.6rem; animation: modalOpen 0.5s ease-in-out 0s forwards; } 
-.modal-wrap .modal .modal-title { padding: 0 3.2rem; line-height: 3.2rem; text-align: center; } 
-.modal-wrap .modal .modal-content { overflow: hidden auto; } 
-.modal-wrap .modal .modal-close { position: absolute; right: 2.4rem; top: 2.4rem; } 
-@keyframes modalBgOpen { 
- 0% { backdrop-filter: blur(0); } 
-100% { backdrop-filter: blur(0.4rem); } 
- }
-@keyframes modalOpen { 
- 0% { transform: scale(0); opacity: 0; } 
-100% { transform: scale(1); opacity: 1; } 
- }
-/* 모달 > 뉴스 */
-.modal-wrap .modal .modal-content .news div:nth-of-type(1) { display: flex; margin-top: 0.4rem; padding-bottom: 0.6rem; border-bottom: 0.1rem solid var(--brd_type01); } 
-.modal-wrap .modal .modal-content .news div:nth-of-type(1) p + p { position: relative; padding-left: 1.5rem; } 
-.modal-wrap .modal .modal-content .news div:nth-of-type(1) p + p::before { content: ''; display: block; width: 0.1rem; height: 1.2rem; position: absolute; left: 0.6rem; top: calc(50% - 0.6rem); background-color: var(--brd_type01); } 
-.modal-wrap .modal .modal-content .news img { margin-top: 1.2rem; aspect-ratio: 16/9; object-fit: contain; background-color: var(--bg_root); } 
-/* .modal-wrap .modal .modal-content .news div:nth-of-type(2) { } */
-.modal-wrap .modal .modal-content .news div:nth-of-type(2) p { word-break: break-all; margin-top: 1.2rem; } 
-.modal-wrap .modal .modal-content .news div:nth-of-type(2) span { margin-left: 0.4rem; } 
-.modal-wrap .modal .modal-content .news div:nth-of-type(2) p.b3 { display: flex; align-items: center; flex-wrap: nowrap; width: 100%; white-space: nowrap; gap: 0.4rem; } 
-.modal-wrap .modal .modal-content .news div:nth-of-type(2) p.b3 a { flex: 1; text-overflow: ellipsis; overflow: hidden; } 
 /* ==================== 다이얼로그 ==================== */
 .dim { position: fixed; inset: 0; backdrop-filter: blur(4px); animation: fadeIn 0.5s cubic-bezier(0.7, -0.3, 0.2, 1.3) 0s 1 forwards; } 
 .dialog { position: fixed; max-height: 80dvh; padding: 2.4rem 1.6rem; background-color: rgb(var(--bg-200)); border-radius: 0.8rem; display: flex; flex-direction: column; border: 0.1rem solid rgb(var(--brd-300)); animation: slideUp 0.5s cubic-bezier(0.7, -0.3, 0.2, 1.3) 0s 1 forwards; } 
@@ -174,6 +149,9 @@ html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; }
 .dialog-title > button { position: absolute; top: calc(50% - 1.6rem); } 
 .dialog-title > button[data-act="close"] { right: 0; } 
 .dialog-content { flex: 1; overflow: hidden auto; margin-top: 2.4rem; } 
+.dialog-content.no-scroll { overflow: hidden; display: flex; flex-direction: column; } 
+.dialog-content.no-scroll > * { flex-shrink: 0; } 
+.dialog-content.no-scroll > .scrollable { flex: 1; overflow: auto; } 
 .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: rgb(var(--bg-300)); padding: 10px 16px; border-radius: 20px; } 
 /* ==================== 따옴 ==================== */
 .quote { display: flex; flex-direction: column; margin: 1.2rem 0; padding: 0.8rem 1.2rem; border-left: 0.4rem solid rgb(var(--primary-300)); background:rgb(var(--bg-300)); border-radius:0.8rem; } 
@@ -202,8 +180,8 @@ html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; }
 /* Lists */
 .md-content ul,
 .md-content ol { margin: 0.8rem 0; padding-left: 2.2rem; } 
-.md-content ul { list-style: disc; }
-.md-content ol { list-style: num; }
+.md-content ul li { list-style: disc; } 
+.md-content ol li { list-style: num; } 
 .md-content li { margin: 0.4em 0; } 
 /* Blockquote */
 .md-content blockquote { margin: 1.5em 0; padding: 0.8em 1em; border-left: 0.4rem solid rgb(var(--brd-500)); background: rgb(var(--bg-100)); color: rgb(var(--txt-700)); } 
@@ -220,9 +198,9 @@ html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; }
 .md-content table tbody th { background-color: rgb(var(--bg-200)); } 
 .md-content table tbody td { color: rgb(var(--txt-700)); } 
 /* Images */
-.md-content img { max-width: 100%; border-radius: 0.8rem; margin: 1.2rem 0; } 
+.md-content img { width: 100%; margin: 1.2rem 0; object-fit: contain; background-color: rgb(var(--bg-700)); } 
 /* Horizontal rule */
-.md-content hr { border: none; border-top: 0.1rem solid rgb(var(--brd-300)); margin: 1.2rem 0; } 
+.md-content hr { border: none; border-top: 0.1rem dashed rgb(var(--brd-700)); margin: 1.2rem 0; } 
 
 @media screen and (max-width: 767px){
  .dialog { max-height: unset; width: 100vw !important; height: 100vh; } 
