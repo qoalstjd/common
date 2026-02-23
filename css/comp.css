@@ -59,7 +59,7 @@ html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; }
 .btn.bg-red,
 .btn.bg-green,
 .btn.bg-900,
-.btn.bg-700 { color: rgb(var(--txt-100)); }
+.btn.bg-700 { color: rgb(var(--txt-100)); } 
 .ico[data-act]:hover { background-color: rgb(var(--bg-hover)); } 
 /* ==================== 링크 ==================== */
 .link { position: relative; padding-right: 1.8rem; color: rgb(var(--link-500)); word-break: break-all; } 
@@ -114,7 +114,7 @@ html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; }
 /* 정의 */
 .def-list { font-weight: 400; word-break: break-all; display: flex; flex-direction: column; gap: 0.2rem; } 
 .def-list > div { display: flex; align-items: flex-start; gap: 0.4rem; } 
-.def-list dt { color: rgb(var(--txt-700)) };.def-list dt ~ dt { margin-left: 0.4rem; } 
+.def-list dt { color: rgb(var(--txt-700)) }; .def-list dt ~ dt { margin-left: 0.4rem; } 
 .def-list dd { flex: 1; } 
 /* 메타 */
 .meta-list > li { display: flex; width: 100%; align-items: center; flex-wrap: nowrap; gap: 0.2rem 1.2rem; padding: 1.2rem 2.4rem; white-space: nowrap; border-bottom: 0.1rem solid rgb(var(--brd-500)); cursor: pointer; } 
@@ -125,19 +125,20 @@ html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; }
 .meta-list > li .date { color: rgb(var(--txt-700)); font-feature-settings: "tnum"; } 
 .meta-list > li .view { color: rgb(var(--txt-700)); font-feature-settings: "tnum"; min-width: 3rem; text-align: center; } 
 /* ==================== 아코디언 ==================== */
-.acc-item + .acc-item .acc-btn { border-top-color: transparent; }
-.acc-item.is-active + .acc-item .acc-btn { border-top-color: rgb(var(--brd-500)); }
-.acc-item .acc-btn { position: relative; width: 100%; padding: 1.2rem 3.6rem 1.2rem 1.2rem; text-align: left; font-size: 1.6rem; font-weight: 600; border-bottom: 0.1rem solid rgb(var(--brd-500)); border-top: 0.1rem solid rgb(var(--brd-500)); }
-.acc-item.is-active .acc-btn { border-bottom-color: rgb(var(--brd-500)); }
-.acc-item .acc-btn::before { content: ""; display: block; width: 2rem; height: 2rem; position: absolute; right: 0.8rem; top: calc(50% - 1rem); mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-color: rgb(var(--txt-900)); transition: transform 0.3s ease-in-out; }
-.acc-item.is-active .acc-btn::before { transform: scaleY(-1); }
-.acc-item .acc-panel { overflow: auto; height: 0; transition: all 0.5s ease-in-out; padding: 0 1.2rem; margin: 0; background-color: rgb(var(--bg-200)); }
-.acc-item.is-active .acc-panel { padding: 1.2rem 1.2rem; margin: 1.2rem 0; }
+.acc-item + .acc-item .acc-btn { border-top-color: transparent; } 
+.acc-item.is-active + .acc-item .acc-btn { border-top-color: rgb(var(--brd-500)); } 
+.acc-item .acc-btn { position: relative; width: 100%; padding: 1.2rem 3.6rem 1.2rem 1.2rem; text-align: left; font-size: 1.6rem; font-weight: 600; border-bottom: 0.1rem solid rgb(var(--brd-500)); border-top: 0.1rem solid rgb(var(--brd-500)); } 
+.acc-item.is-active .acc-btn { border-bottom-color: rgb(var(--brd-500)); } 
+.acc-item .acc-btn::before { content: ""; display: block; width: 2rem; height: 2rem; position: absolute; right: 0.8rem; top: calc(50% - 1rem); mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-color: rgb(var(--txt-900)); transition: transform 0.3s ease-in-out; } 
+.acc-item.is-active .acc-btn::before { transform: scaleY(-1); } 
+.acc-item .acc-panel { overflow: auto; height: 0; transition: all 0.5s ease-in-out; padding: 0 1.2rem; margin: 0; background-color: rgb(var(--bg-200)); } 
+.acc-item.is-active .acc-panel { padding: 1.2rem 1.2rem; margin: 1.2rem 0; } 
 /* ==================== 로딩 ==================== */
 .loading { position: relative; } 
 .loading * { display: none !important; } 
 .loading::before { content: ""; position: absolute; left: calc(50% - 2rem); top: calc(50% - 2rem); width: 4rem; height: 4rem; border-radius: 50%; border: 0.2rem solid rgb(var(--brd-500)); border-right-color: rgb(var(--primary-500)); animation: spin 1s cubic-bezier(0.7, -0.3, 0.2, 1.3) 0s infinite; } 
-@keyframes spin {0% { transform: rotate(0deg); } 
+@keyframes spin { 
+ 0% { transform: rotate(0deg); } 
 100% { transform: rotate(360deg); } 
  }
 /* ==================== 모달 ==================== */
@@ -147,10 +148,12 @@ html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; }
 .modal-wrap .modal .modal-title { padding: 0 3.2rem; line-height: 3.2rem; text-align: center; } 
 .modal-wrap .modal .modal-content { overflow: hidden auto; } 
 .modal-wrap .modal .modal-close { position: absolute; right: 2.4rem; top: 2.4rem; } 
-@keyframes modalBgOpen {0% { backdrop-filter: blur(0); } 
+@keyframes modalBgOpen { 
+ 0% { backdrop-filter: blur(0); } 
 100% { backdrop-filter: blur(0.4rem); } 
  }
-@keyframes modalOpen {0% { transform: scale(0); opacity: 0; } 
+@keyframes modalOpen { 
+ 0% { transform: scale(0); opacity: 0; } 
 100% { transform: scale(1); opacity: 1; } 
  }
 /* 모달 > 뉴스 */
@@ -180,8 +183,50 @@ html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; }
 .quote:first-child { margin-top: 0; } 
 .quote blockquote { font-size: 1.4rem; } 
 .quote figcaption { margin-top:0.2rem; font-size:1.2rem; color: rgb(var(--txt-700)); } 
+/* ==================== 마크다운 ==================== */
+.md-content { word-break: break-all; } 
+/* Headings */
+.md-content h1,
+.md-content h2,
+.md-content h3,
+.md-content h4,
+.md-content h5,
+.md-content h6 { font-weight: 600; }  
+.md-content h1 { font-size: 1.8rem; margin: 2rem 0 1.2em; } 
+.md-content h2 { font-size: 1.6rem; margin: 1.2rem 0 0.8rem; } 
+.md-content h3 { font-size: 1.4rem; margin: 1.2rem 0 0.8rem; } 
+.md-content h1:first-child,
+.md-content h2:first-child,
+.md-content h3:first-child { margin-top: 0; }
+.md-content p:not(:first-child) { margin-top: 0.8rem; } 
+/* Links */
+.md-content a { color: rgb(var(--primary-500)); } 
+.md-content a:hover { text-decoration: underline; } 
+/* Lists */
+.md-content ul,
+.md-content ol { list-style: initial; margin: 1em 0; padding-left: 1.5em; } 
+.md-content li { margin: 0.4em 0; } 
+/* Blockquote */
+.md-content blockquote { margin: 1.5em 0; padding: 0.8em 1em; border-left: 0.4rem solid rgb(var(--brd-500)); background: rgb(var(--bg-100)); color: rgb(var(--txt-700)); } 
+/* Code inline */
+.md-content code { background: rgb(var(--bg-200)); padding: 0.2em 0.4em; border-radius: 0.4rem; font-size: 1rem; font-family: monospace; } 
+/* Code block */
+.md-content pre { background: rgb(var(--bg-900)); color: rgb(var(--txt-100)); padding: 1rem; border-radius: 0.8rem; overflow-x: auto; margin-top: 1.6rem; } 
+.md-content pre code { background: none; padding: 0; font-size: 1rem; } 
+/* Tables */
+.md-content table { width: 100%; border-collapse: collapse; margin-top: 1.2rem; } 
+.md-content table th,
+.md-content table td { border: solid rgb(var(--brd-300)); border-width: 0.1rem 0 0 0.1rem; padding: 0.8rem 0.8rem; } 
+.md-content table thead th { background-color: rgb(var(--bg-700)); color: rgb(var(--txt-100)); } 
+.md-content table tbody th { background-color: rgb(var(--bg-200)); } 
+.md-content table tbody td { color: rgb(var(--txt-700)); } 
+/* Images */
+.md-content img { max-width: 100%; border-radius: 0.8rem; margin: 1.2rem 0; } 
+/* Horizontal rule */
+.md-content hr { border: none; border-top: 0.1rem solid rgb(var(--brd-300)); margin: 1.2rem 0; } 
 
-@media screen and (max-width: 767px) {.dialog { max-height: unset; width: 100vw !important; height: 100vh; } 
+@media screen and (max-width: 767px){
+ .dialog { max-height: unset; width: 100vw !important; height: 100vh; } 
 .ty-masonry { flex-direction: column; } 
 .ty-masonry > * { flex-basis: 100%; } 
 .ty-masonry .box > img { position: static; height: auto; } 

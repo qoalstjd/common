@@ -20,7 +20,7 @@ ul,ol,li { list-style: none; }
 /* ==================== MEDIA ==================== */
 img,video,iframe,canvas,svg { display: block; max-width: 100%; } 
 /* ==================== FORM ==================== */
-input,select,textarea,button { border: 0; background: rgb(var(--bg-000)); appearance: none; font: inherit; color: inherit; } 
+input,select,textarea,button { border: 0; background: none; appearance: none; font: inherit; color: inherit; } 
 textarea { resize: vertical; } 
 button,label { cursor: pointer; } 
 input::placeholder { color: rgba(var(--txt-900), .5); } 
