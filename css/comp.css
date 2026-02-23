@@ -57,7 +57,7 @@ html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; }
 .btn.bg-900,
 .btn.bg-700 { color: rgb(var(--txt-white)); } 
 .btn:hover::before,
-.ico-wrap:hover::before { content: ""; position: absolute; inset: 0; border-radius: 0.4rem; background-color: rgba(var(--bg-hover), 0.7); } 
+.ico-wrap:hover::before { content: ""; position: absolute; inset: 0; border-radius: 0.4rem; background-color: rgba(var(--bg-100), 0.1); } 
 /* ==================== 링크 ==================== */
 .link { position: relative; padding-right: 1.8rem; color: rgb(var(--link-500)); word-break: break-all; } 
 .link:hover { text-decoration: underline; } 
@@ -188,13 +188,13 @@ html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; }
 .md-content h3,
 .md-content h4,
 .md-content h5,
-.md-content h6 { font-weight: 600; }  
+.md-content h6 { font-weight: 600; } 
 .md-content h1 { font-size: 1.8rem; margin: 2rem 0 1.2em; } 
 .md-content h2 { font-size: 1.6rem; margin: 1.2rem 0 0.8rem; } 
 .md-content h3 { font-size: 1.4rem; margin: 1.2rem 0 0.8rem; } 
 .md-content h1:first-child,
 .md-content h2:first-child,
-.md-content h3:first-child { margin-top: 0; }
+.md-content h3:first-child { margin-top: 0; } 
 .md-content p:not(:first-child) { margin-top: 0.8rem; } 
 /* Links */
 .md-content a { color: rgb(var(--primary-500)); } 
