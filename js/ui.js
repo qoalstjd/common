@@ -520,7 +520,7 @@ const dialog = {
     },
     loadModule(url, params, root) {
         if (!url) return;
-        const jsPath = `${window.BASE}${url.replace(/\.html$/, ".js")}?t=${Date.now()}`;
+        const jsPath = `${location.hostname.includes("github.io") ? "/" + location.pathname.split("/")[1] : ""}${url.replace(/\.html$/, ".js")}?t=${Date.now()}`;
         const existing = document.querySelector(`script[data-page="${url}"]`);
         if (existing) existing.remove();
         const script = document.createElement("script");

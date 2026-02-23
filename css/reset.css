@@ -27,8 +27,7 @@ input::placeholder { color: rgba(var(--txt-900), .5); }
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
-input:-webkit-autofill:active { -webkit-text-fill-color: inherit; -webkit-box-shadow: 0 0 0px 1000px rgb(var(--bg-000)) inset; transition: background-color 5000s ease-in-out 0s; } 
-[contenteditable] { spellcheck: false; -webkit-user-modify: read-write-plaintext-only; } 
+input:-webkit-autofill:active { -webkit-text-fill-color: rgb(var(--txt-900)); -webkit-box-shadow: 0 0 0px 1000px rgb(var(--bg-000)) inset; transition: background-color 5000s ease-in-out 0s; } 
 /* ==================== TABLE ==================== */
 table { width: 100%; border-spacing: 0; table-layout: fixed; } 
 table td, table th { color: rgb(var(--txt-900)); line-height: 1.5; } 

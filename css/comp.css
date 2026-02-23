@@ -28,9 +28,7 @@ a.box:hover { background-color: rgb(var(--bg-hover)) !important; }
 .tag.retrospective { background-color: rgb(var(--tag-retrospective)); } 
 .tag.firebase { background-color: rgb(var(--tag-firebase)); } 
 /* ==================== 아이콘 ==================== */
-.ico-wrap { display: flex; align-items: center; gap: 0.4rem; border-radius: 0.4rem; } 
-button.ico-wrap:hover,
-a.ico-wrap:hover { background-color: rgb(var(--bg-hover)); } 
+.ico-wrap { position: relative; display: flex; align-items: center; gap: 0.4rem; border-radius: 0.4rem; } 
 .ico-wrap svg { width: 2.4rem; height: 2.4rem; } 
 html[data-theme="dark"] .ico-wrap use[href$="#ui-sun"] { display: none; } 
 html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; } 
@@ -45,10 +43,8 @@ html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; }
 /* ==================== 버튼 ==================== */
 .btn-wrap { display: flex; align-items: center; gap: 0.6rem; margin-top: 4rem; } 
 .btn-wrap .btn { min-width: 10rem; } 
-.btn { display: inline-flex; justify-content: center; align-items: center; gap: 0.4rem; padding: 0 1.2rem; border-radius: 0.4rem; font-weight: 700; background-color: rgb(var(--bg-400)); } 
-.btn:hover { background-color: rgb(var(--bg-hover)); } 
+.btn { position: relative; display: inline-flex; justify-content: center; align-items: center; gap: 0.4rem; padding: 0 1.2rem; border-radius: 0.4rem; font-weight: 700; background-color: rgb(var(--bg-400)); } 
 .btn.line { border: 0.1rem solid rgb(var(--brd-900)); background: none; } 
-.btn.line:hover { background-color: rgb(var(--bg-hover)); } 
 .btn:disabled { opacity: 0.5; } 
 .btn.xs { height: 2.4rem; padding: 0 0.8rem; font-size: 1.2rem; } 
 .btn.sm { height: 3.2rem; padding: 0 1rem; font-size: 1.4rem; } 
@@ -59,8 +55,9 @@ html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; }
 .btn.bg-red,
 .btn.bg-green,
 .btn.bg-900,
-.btn.bg-700 { color: rgb(var(--txt-100)); } 
-.ico[data-act]:hover { background-color: rgb(var(--bg-hover)); } 
+.btn.bg-700 { color: rgb(var(--txt-white)); } 
+.btn:hover::before,
+.ico-wrap:hover::before { content: ""; position: absolute; inset: 0; border-radius: 0.4rem; background-color: rgba(var(--bg-hover), 0.7); } 
 /* ==================== 링크 ==================== */
 .link { position: relative; padding-right: 1.8rem; color: rgb(var(--link-500)); word-break: break-all; } 
 .link:hover { text-decoration: underline; } 
