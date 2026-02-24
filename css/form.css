@@ -2,9 +2,11 @@
 /* ==================== input ==================== */
 .inp { position: relative; } 
 .inp .ico-wrap { position: absolute; right: 0.8rem; top: 50%; transform: translateY(-50%); } 
+[contenteditable],
 input[type="text"],
 input[type="password"],
 input[type="file"] { position: relative; display: block; border: 0.1rem solid rgb(var(--brd-500)); border-radius: 0.4rem; padding: 0.4rem 0.8rem; font-size: 1.4rem; line-height: 2.2rem; width: 100%; } 
+[contenteditable]:focus,
 input[type="text"]:focus,
 input[type="password"]:focus { border-color: rgb(var(--primary-500)); } 
 input[type="text"]::placeholder,
@@ -12,6 +14,7 @@ input[type="password"]::placeholder { font-size: 1.4rem; line-height: 2.1rem; co
 input[type="file"] { cursor: pointer; padding-right: 7rem; } 
 input[type="file"]::-webkit-file-upload-button { border: none; margin: 0; font: inherit; padding: 0 0.8rem; border-radius: 0.4rem; font-size: 1.2rem; font-weight: 700; background-color: rgb(var(--bg-400)); font-size: 1.4rem; height: 3.2rem; position: absolute; right: -0.1rem; top: -0.1rem; cursor: pointer; } 
 input[type="file"]::-webkit-file-upload-button:hover { background-color: rgb(var(--bg-hover)); } 
+.flx [contenteditable],
 .flx input[type="text"],
 .flx input[type="password"],
 .flx input[type="file"] { flex: 1; } 

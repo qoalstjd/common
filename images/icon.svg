@@ -235,13 +235,6 @@
         <path d="M10.2 6.3l5.8 13.7" />
         <path d="M5 20l6 -16l2 0l7 16" />
     </symbol>
-    <symbol id="content-hr" viewBox="0 0 24 24">
-        <title>content-hr</title>
-        <desc>구분선</desc>
-        <path d="M3 12l0 .01" />
-        <path d="M7 12l10 0" />
-        <path d="M21 12l0 .01" />
-    </symbol>
     <symbol id="content-ul" viewBox="0 0 24 24">
         <title>content-ul</title>
         <desc>불릿 목록</desc>

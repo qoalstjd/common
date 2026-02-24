@@ -31,12 +31,12 @@ const ui = {
             timer = setTimeout(() => fn(...args), delay);
         };
     },
-    detectOS: function() {
+    detectOS: function () {
         ui.isMobile = /iphone|ipod|ipad|android/i.test(navigator.userAgent);
-        if(!ui.isMobile) {
-            document.querySelectorAll("a[href^='tel:'], a[href^='sms:']").forEach(el => {
+        if (!ui.isMobile) {
+            document.querySelectorAll("a[href^='tel:'], a[href^='sms:']").forEach((el) => {
                 el.remove();
-            })
+            });
         }
     },
     scrollLock: {
@@ -465,14 +465,19 @@ const dialog = {
             close(); // 적용 후 닫기
         };
 
-
         pop.querySelector(".dialog-title").innerHTML += `
             <button class="ico-wrap pd-4" data-act="close">
                 <svg><use href="#act-close"></use></svg>
             </button>
         `;
         pop.querySelectorAll("[data-act='close']").forEach((b) => (b.onclick = close));
-        pop.querySelectorAll("[data-act='apply']").forEach((b) => (b.onclick = apply));
+        pop.querySelectorAll("[data-act='apply']").forEach(
+            (b) =>
+                (b.onclick = () => {
+                    const payload = window.collectDialogData?.(pop);
+                    apply(payload);
+                })
+        );
 
         if (dim) {
             dimEl = document.createElement("div");
@@ -485,7 +490,7 @@ const dialog = {
         document.addEventListener("keydown", escClose);
         parent.append(pop);
         this.loadModule(url, data, pop);
-        this.stack.push({ pop, dimEl, close });
+        this.stack.push({ pop, dimEl, close, apply });
         ui.scrollLock.lock();
         this.trapFocus(pop);
         this.syncDim();
