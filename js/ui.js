@@ -430,6 +430,7 @@ const ui = {
 const dialog = {
     stack: [],
     z: 1000,
+    _resizeBound: false,
     async open({ url, data = {}, size = "md", parent = document.body, dim = true, esc = true, opener = document.activeElement, onClose, onApply } = {}) {
         if (!url) return;
 
@@ -495,20 +496,19 @@ const dialog = {
         this.trapFocus(pop);
         this.syncDim();
 
-        pop.style.left = Math.max((window.innerWidth - pop.offsetWidth) / 2, 0) + "px";
-        pop.style.top = Math.max((window.innerHeight - pop.offsetHeight) / 2, 0) + "px";
-        window.addEventListener(
-            "resize",
-            ui.debouncer(() => {
-                const top = window.dialog.stack.at(-1);
-                if (!top) return;
-
-                const { pop } = top;
-                pop.style.left = Math.max((window.innerWidth - pop.offsetWidth) / 2, 0) + "px";
-                pop.style.top = Math.max((window.innerHeight - pop.offsetHeight) / 2, 0) + "px";
-            }, 50)
-        );
-
+        this.centerDialog(pop);
+        if (!this._resizeBound) {
+            const resizeHandler = ui.debouncer(() => {
+                this.stack.forEach(({ pop }) => this.centerDialog(pop));
+            }, 50);
+            window.addEventListener("resize", resizeHandler);
+            const observer = new ResizeObserver(resizeHandler);
+            this.stack.forEach(({ pop }) => observer.observe(pop));
+            this._observer = observer;
+            this._resizeBound = true;
+        } else {
+            this._observer.observe(pop);
+        }
         return { pop, close };
     },
     closeTop() {
@@ -537,6 +537,10 @@ const dialog = {
                 first.focus();
             }
         };
+    },
+    centerDialog(pop) {
+        pop.style.left = Math.max((window.innerWidth - pop.offsetWidth) / 2, 0) + "px";
+        pop.style.top = Math.max((window.innerHeight - pop.offsetHeight) / 2, 0) + "px";
     },
     loadModule(url, params, root) {
         if (!url) return;
