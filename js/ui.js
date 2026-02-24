@@ -11,6 +11,7 @@ const ui = {
             ui.btn.init();
             ui.tab.init();
             ui.accordion.init();
+            ui.detectOS();
         },
     },
     page: {
@@ -29,6 +30,14 @@ const ui = {
             clearTimeout(timer);
             timer = setTimeout(() => fn(...args), delay);
         };
+    },
+    detectOS: function() {
+        ui.isMobile = /iphone|ipod|ipad|android/i.test(navigator.userAgent);
+        if(!ui.isMobile) {
+            document.querySelectorAll("a[href^='tel:'], a[href^='sms:']").forEach(el => {
+                el.remove();
+            })
+        }
     },
     scrollLock: {
         _locked: false,
@@ -421,7 +430,7 @@ const ui = {
 const dialog = {
     stack: [],
     z: 1000,
-    async open({ url, data = {}, size = "md", parent = document.body, dim = true, esc = true, opener = document.activeElement, onClose } = {}) {
+    async open({ url, data = {}, size = "md", parent = document.body, dim = true, esc = true, opener = document.activeElement, onClose, onApply } = {}) {
         if (!url) return;
 
         const res = await fetch(url);
@@ -449,8 +458,13 @@ const dialog = {
             if (!this.stack.length) ui.scrollLock.unlock();
             this.syncDim();
         };
-
         const escClose = (e) => esc && e.key === "Escape" && this.closeTop();
+
+        const apply = (payload) => {
+            onApply?.(payload);
+            close(); // 적용 후 닫기
+        };
+
 
         pop.querySelector(".dialog-title").innerHTML += `
             <button class="ico-wrap pd-4" data-act="close">
@@ -458,6 +472,7 @@ const dialog = {
             </button>
         `;
         pop.querySelectorAll("[data-act='close']").forEach((b) => (b.onclick = close));
+        pop.querySelectorAll("[data-act='apply']").forEach((b) => (b.onclick = apply));
 
         if (dim) {
             dimEl = document.createElement("div");

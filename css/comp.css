@@ -180,7 +180,7 @@ html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; }
 /* Lists */
 .md-content ul,
 .md-content ol { margin: 0.8rem 0; padding-left: 2.2rem; } 
-.md-content ul li { list-style: disc; } 
+.md-content ul li { list-style: disc; }
 .md-content ol li { list-style: num; } 
 .md-content li { margin: 0.4em 0; } 
 /* Blockquote */

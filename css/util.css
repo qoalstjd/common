@@ -13,6 +13,9 @@
 .ml-auto { margin-left: auto !important; } 
 .ml-8 { margin-left: 0.8rem !important; } 
 .ml-12 { margin-left: 1.2rem !important; } 
+.mx-auto { margin-left: auto !important; margin-right: auto !important; }
+.mx-4 { margin-left: 0.4rem !important; margin-right: 0.4rem !important; }
+.my-2 { margin-top: 0.2rem !important; margin-bottom: 0.2rem !important; }
 .mb-0 { margin-bottom: 0 !important; } 
 .mb-8 { margin-bottom: 0.8rem !important; } 
 .mb-12 { margin-bottom: 1.2rem !important; } 
@@ -37,7 +40,8 @@
 .pd-16 { padding: 1.6rem !important; } 
 .pd-20 { padding: 2.0rem !important; } 
 .pd-24 { padding: 2.4rem !important; } 
-.pdx-32 { padding-left: 3.2rem !important; padding-right: 3.2rem !important; } 
+.px-8 { padding-left: 0.8rem !important; padding-right: 0.8rem !important; }
+.px-32 { padding-left: 3.2rem !important; padding-right: 3.2rem !important; } 
 .pl-12 { padding-left: 1.2rem !important; } 
 .pl-24 { padding-left: 2.4rem !important; } 
 /* ==================== 보더 ==================== */
@@ -60,13 +64,13 @@
 i.hr { display: block; width: 100%; height: 0.1rem; background-color: rgba(var(--brd-900), 0.5); margin: 1.6rem 0; flex-shrink: 0; } 
 i.vr { display: block; width: 0.1rem; height: auto; min-height: 1.2rem; background-color: rgba(var(--brd-900), 0.5); flex-shrink: 0; } 
 /* ==================== 크기 ==================== */
-.w-full { width: 100%; } 
-.h-full { height: 100%; } 
-.w-100 { width: 10rem; } 
-.w-120 { width: 12rem; } 
-.w-240 { width: 24rem; } 
-.w-auto { width: auto; } 
-.h-auto { height: auto; } 
+.w-full { width: 100% !important; } 
+.h-full { height: 100% !important; } 
+.w-100 { width: 10rem !important; } 
+.w-120 { width: 12rem !important; } 
+.w-240 { width: 24rem !important; } 
+.w-auto { width: auto !important; } 
+.h-auto { height: auto !important; } 
 .h-10 { height: 1rem !important; } 
 .h-16 { height: 1.6rem !important; } 
 .h-40 { height: 4rem !important; } 
@@ -111,9 +115,17 @@ i.vr { display: block; width: 0.1rem; height: auto; min-height: 1.2rem; backgrou
 .flx-wrap { flex-wrap: wrap !important; } 
 .flx-nowrap { flex-wrap: nowrap !important; } 
 .flx-nowrap .ell-1 { flex: 1; width: auto; max-width: fit-content; } 
+.flx-1 { flex: 1 !important; }
+.flx-0 { flex: 0 !important; }
+.flx-auto { flex: auto !important; }
 /* ==================== GRID ==================== */
 .grid { display: grid !important; grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr)); } 
 .grid.min-120 { grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr)); } 
 .grid.min-240 { grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr)); } 
 .grid.min-280 { grid-template-columns: repeat(auto-fill, minmax(28rem, 1fr)); } 
 .grid.min-320 { grid-template-columns: repeat(auto-fill, minmax(32rem, 1fr)); } 
+/* ==================== Display ==================== */
+.d-none { display: none !important; }
+.d-block { display: block !important; }
+.d-inline { display: inline !important; }
+.d-inline-block { display: inline-block !important; }
