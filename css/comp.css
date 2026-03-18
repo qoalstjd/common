@@ -59,7 +59,7 @@ html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; }
 .btn:hover::before,
 .ico-wrap:hover::before { content: ""; position: absolute; inset: 0; border-radius: 0.4rem; background-color: rgba(var(--bg-100), 0.2); } 
 /* ==================== 링크 ==================== */
-.link { position: relative; padding-right: 1.8rem; color: rgb(var(--link-500)); word-break: break-all; } 
+.link { position: relative; padding-right: 1.8rem; color: rgb(var(--link-500)); word-break: break-all; max-width: fit-content; } 
 .link:hover { text-decoration: underline; } 
 .link::after { content: ''; position: absolute; right: 0; top: calc(50% - 0.8rem); display: block; width: 1.6rem; height: 1.6rem; background-color: currentColor; mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.667 3l9.587 8.628a.5.5 0 010 .744L6.667 21' stroke='%23000' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center / 1.2rem; } 
 /* ==================== 탭 ==================== */
@@ -111,7 +111,8 @@ html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; }
 /* 정의 */
 .def-list { font-weight: 400; word-break: break-all; display: flex; flex-direction: column; gap: 0.2rem; } 
 .def-list > div { display: flex; align-items: flex-start; gap: 0.4rem; } 
-.def-list dt { color: rgb(var(--txt-700)) }; .def-list dt ~ dt { margin-left: 0.4rem; } 
+.def-list dt { color: rgb(var(--txt-700)); } 
+.def-list dt ~ dt { margin-left: 0.4rem; } 
 .def-list dd { flex: 1; } 
 /* 메타 */
 .meta-list > li { display: flex; width: 100%; align-items: center; flex-wrap: nowrap; gap: 0.2rem 1.2rem; padding: 1.2rem 2.4rem; white-space: nowrap; border-bottom: 0.1rem solid rgb(var(--brd-500)); cursor: pointer; } 
@@ -180,7 +181,7 @@ html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; }
 /* Lists */
 .md-content ul,
 .md-content ol { margin: 0.8rem 0; padding-left: 2.2rem; } 
-.md-content ul li { list-style: disc; }
+.md-content ul li { list-style: disc; } 
 .md-content ol li { list-style: num; } 
 .md-content li { margin: 0.4em 0; } 
 /* Blockquote */

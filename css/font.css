@@ -54,8 +54,8 @@ em { text-decoration: underline; }
 .tit-wrap h6 { margin-bottom: 0; } 
 /* ==================== 말줄임 ==================== */
 .ell-1 { display: block; width: 100%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; } 
-.ell-2 { display: -webkit-box; line-clamp: 2; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; } 
-.ell-3 { display: -webkit-box; line-clamp: 3; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; } 
+.ell-2 { display: -webkit-box; line-clamp: 2; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; word-break: break-all; } 
+.ell-3 { display: -webkit-box; line-clamp: 3; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; word-break: break-all; } 
 /* ==================== 기타 ==================== */
 .wb-all { word-break: break-all !important; } 
 .ws-nowrap { white-space: nowrap !important; } 

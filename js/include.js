@@ -1,4 +1,4 @@
-window.BASE = location.hostname.includes("github.io") ? "/" + location.pathname.split("/")[1] : "";
+window.BASE = document.querySelector("base")?.getAttribute("href")?.replace(/\/$/, "") || "";
 
 const DEFAULT_LINKCD = "m0100";
 const SPA = {
