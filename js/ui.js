@@ -442,15 +442,6 @@ const dialog = {
         pop.style.zIndex = ++this.z;
         pop.innerHTML = html;
 
-        const stateKey = `dialog-${Date.now()}`;
-        history.pushState({ dialog: stateKey }, "");
-        const onPopState = (e) => {
-            if (this.stack.length && (!e.state || e.state.dialog === stateKey)) {
-                close();
-            }
-        };
-        window.addEventListener("popstate", onPopState);
-
         // data-bind 처리
         if (window.bindData) {
             window.bindData(pop, data);
@@ -469,6 +460,16 @@ const dialog = {
             if (!this.stack.length) ui.scrollLock.unlock();
             this.syncDim();
         };
+
+        const stateKey = `dialog-${Date.now()}`;
+        history.pushState({ dialog: stateKey }, "");
+        const onPopState = (e) => {
+            if (this.stack.length && (!e.state || e.state.dialog === stateKey)) {
+                close();
+            }
+        };
+        window.addEventListener("popstate", onPopState);
+        
         const escClose = (e) => esc && e.key === "Escape" && this.closeTop();
 
         const apply = (payload) => {
