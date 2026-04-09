@@ -87,10 +87,7 @@ const SPA = {
             this.loadPage(params, false);
         });
         window.addEventListener("popstate", (e) => {
-            if (e.state?.dialog) {
-                window.dialog.closeTop();
-                return;
-            }
+            if (dialog.stack.length > 0) return dialog.closeTop();
             const state = e.state || {};
             if (!state.linkcd) state.linkcd = DEFAULT_LINKCD;
             sessionStorage.setItem("pageParams", JSON.stringify(state));
