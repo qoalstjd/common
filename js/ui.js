@@ -434,6 +434,8 @@ const dialog = {
     async open({ url, data = {}, size = "md", parent = document.body, dim = true, esc = true, opener = document.activeElement, onClose, onApply } = {}) {
         if (!url) return;
 
+        history.pushState({ dialog: true }, "");
+
         const res = await fetch(url);
         const html = await res.text();
 
@@ -455,21 +457,11 @@ const dialog = {
             opener?.focus();
             onClose?.();
             document.removeEventListener("keydown", escClose);
-            window.removeEventListener("popstate", onPopState); // 이벤트 제거
 
             if (!this.stack.length) ui.scrollLock.unlock();
             this.syncDim();
         };
 
-        const stateKey = `dialog-${Date.now()}`;
-        history.pushState({ dialog: stateKey }, "");
-        const onPopState = (e) => {
-            if (this.stack.length && (!e.state || e.state.dialog === stateKey)) {
-                close();
-            }
-        };
-        window.addEventListener("popstate", onPopState);
-        
         const escClose = (e) => esc && e.key === "Escape" && this.closeTop();
 
         const apply = (payload) => {
