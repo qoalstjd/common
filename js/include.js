@@ -87,7 +87,7 @@ const SPA = {
             this.loadPage(params, false);
         });
         window.addEventListener("popstate", (e) => {
-            if (e.state?.dialogKey) {
+            if (e.state?.dialog) {
                 window.dialog.closeTop();
                 return;
             }
