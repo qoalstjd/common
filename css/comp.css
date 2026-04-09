@@ -161,6 +161,7 @@ html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; }
 .quote figcaption { margin-top:0.2rem; font-size:1.2rem; color: rgb(var(--txt-700)); } 
 /* ==================== 마크다운 ==================== */
 .md-content { word-break: break-all; } 
+.md-content > :first-child { margin-top: 0 !important; } 
 /* Headings */
 .md-content h1,
 .md-content h2,
@@ -171,10 +172,7 @@ html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; }
 .md-content h1 { font-size: 1.8rem; margin: 2rem 0 1.2em; } 
 .md-content h2 { font-size: 1.6rem; margin: 1.2rem 0 0.8rem; } 
 .md-content h3 { font-size: 1.4rem; margin: 1.2rem 0 0.8rem; } 
-.md-content h1:first-child,
-.md-content h2:first-child,
-.md-content h3:first-child { margin-top: 0; } 
-.md-content p:not(:first-child) { margin-top: 0.8rem; } 
+.md-content p { margin-top: 0.8rem; } 
 /* Links */
 .md-content a { color: rgb(var(--primary-500)); } 
 .md-content a:hover { text-decoration: underline; } 
@@ -203,7 +201,8 @@ html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; }
 /* Horizontal rule */
 .md-content hr { border: none; border-top: 0.1rem dashed rgb(var(--brd-700)); margin: 1.2rem 0; } 
 
-@media screen and (max-width: 767px) {.dialog { max-height: unset; width: 100vw !important; height: calc(100vh - env(safe-area-inset-bottom, 0)); max-height: 100%; } 
+@media screen and (max-width: 767px){
+ .dialog { max-height: unset; width: 100vw !important; height: calc(100vh - env(safe-area-inset-bottom, 0)); max-height: 100%; } 
 .ty-masonry { flex-direction: column; } 
 .ty-masonry > * { flex-basis: 100%; } 
 .ty-masonry .box > img { position: static; height: auto; } 
