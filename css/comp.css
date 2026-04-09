@@ -203,8 +203,7 @@ html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; }
 /* Horizontal rule */
 .md-content hr { border: none; border-top: 0.1rem dashed rgb(var(--brd-700)); margin: 1.2rem 0; } 
 
-@media screen and (max-width: 767px){
- .dialog { max-height: unset; width: 100vw !important; height: 100vh; } 
+@media screen and (max-width: 767px) {.dialog { max-height: unset; width: 100vw !important; height: calc(100vh - env(safe-area-inset-bottom, 0)); max-height: 100%; } 
 .ty-masonry { flex-direction: column; } 
 .ty-masonry > * { flex-basis: 100%; } 
 .ty-masonry .box > img { position: static; height: auto; } 

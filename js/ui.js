@@ -35,7 +35,7 @@ const ui = {
         ui.isMobile = /iphone|ipod|ipad|android/i.test(navigator.userAgent);
         if (!ui.isMobile) {
             document.querySelectorAll("a[href^='tel:'], a[href^='sms:']").forEach((el) => {
-                el.remove();
+                el.style.pointerEvents = "none";
             });
         }
     },
