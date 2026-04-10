@@ -34,12 +34,9 @@ const ui = {
     detectOS: function () {
         ui.isMobile = /iphone|ipod|ipad|android/i.test(navigator.userAgent);
         if (ui.isMobile) {
-            document.querySelectorAll("a[href^='tel:'], a[href^='sms:']").forEach((el) => {
-                el.style.display = "none";
-            });
-            document.documentElement.classList.add("env-pc");
+            document.documentElement.dataset.env = "env-pc";
         } else {
-            document.documentElement.classList.add("env-mobile");
+            document.documentElement.dataset.env = "env-mobile";
         }
     },
     scrollLock: {
