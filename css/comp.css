@@ -32,6 +32,8 @@ a.box:hover { background-color: rgb(var(--bg-hover)) !important; }
 .ico-wrap svg { width: 2.4rem; height: 2.4rem; } 
 html[data-theme="dark"] .ico-wrap use[href$="#ui-sun"] { display: none; } 
 html[data-theme="light"] .ico-wrap use[href$="#ui-moon"] { display: none; } 
+html:not(:fullscreen) .ico-wrap use[href$="#act-minimize"] { display: none; } 
+html:fullscreen .ico-wrap use[href$="#act-maximize"] { display: none; } 
 [data-sort="asc"] use[href$="#dir-caret-down"] { display: none; } 
 [data-sort="desc"] use[href$="#dir-caret-up"] { display: none; } 
 /* ==================== 툴팁 ==================== */

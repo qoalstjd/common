@@ -154,6 +154,25 @@ const ui = {
         toggle(el) {
             el.classList.toggle("is-active");
         },
+        share() {
+            const data = {
+                title: document.title,
+                url: location.href,
+            };
+            if (navigator.share) {
+                navigator.share(data);
+            } else {
+                navigator.clipboard.writeText(data.url);
+                alert("링크가 복사되었습니다");
+            }
+        },
+        fullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen?.();
+            } else {
+                document.exitFullscreen?.();
+            }
+        },
     },
     accordion: {
         init() {
