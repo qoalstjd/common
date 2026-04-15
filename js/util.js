@@ -164,13 +164,20 @@ const fetchManager = {
 // =========================
 const bindData = (root, data) => {
     const tpl = (s) => s.replace(/{{(.*?)}}/g, (_, k) => data[k.trim()] ?? "");
-
     root.querySelectorAll("[data-bind]").forEach((el) => {
         el.dataset.bind.split(/\s+/).forEach((type) => {
-            if (type === "txt") el.textContent = tpl(el.textContent);
-            if (type === "html") el.innerHTML = tpl(el.innerHTML);
-            if (type === "href") el.href = tpl(el.getAttribute("href"));
-            if (type === "src") el.src = tpl(el.getAttribute("src"));
+            const key = `tpl_${type}`;
+            if (!el.dataset[key]) {
+                if (type === "txt") el.dataset[key] = el.textContent;
+                if (type === "html") el.dataset[key] = el.innerHTML;
+                if (type === "href") el.dataset[key] = el.getAttribute("href") || "";
+                if (type === "src") el.dataset[key] = el.getAttribute("src") || "";
+            }
+            const raw = el.dataset[key];
+            if (type === "txt") el.textContent = tpl(raw);
+            if (type === "html") el.innerHTML = tpl(raw);
+            if (type === "href") el.href = tpl(raw);
+            if (type === "src") el.src = tpl(raw);
             if (type === "onerror") {
                 const fallback = el.dataset.onerror;
                 if (!fallback) return;
