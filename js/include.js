@@ -63,7 +63,7 @@ const SPA = {
             const a = e.target.closest("a");
             if (!a) return;
             if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-            const url = new URL(a.href);
+            const url = new URL(a.getAttribute("href"), location.href);
             if (url.hash) {
                 e.preventDefault();
                 const id = decodeURIComponent(url.hash.slice(1));
@@ -76,6 +76,7 @@ const SPA = {
                 return;
             }
             if (url.origin !== location.origin) return;
+            if (!url.pathname.endsWith("index.html") && url.pathname !== "/") return;
             if (url.protocol === "mailto:" || url.protocol === "tel:") return;
             e.preventDefault();
             const params = Object.fromEntries(url.searchParams.entries());
