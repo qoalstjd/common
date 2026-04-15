@@ -450,7 +450,7 @@ const dialog = {
     stack: [],
     z: 1000,
     async open(opt = {}) {
-        const { type = "popup", url, html, data = {}, size = "md", parent = document.body, dim = true, esc = true, opener = document.activeElement, onClose, onApply } = opt;
+        let { type = "popup", url, html, data = {}, size = "md", parent = document.body, dim = true, esc = true, opener = document.activeElement, onClose, onApply } = opt;
         if (type === "popup" && !url) return;
         history.pushState({ dialog: true }, "");
         const content = await this.getContent(type, url, html);
