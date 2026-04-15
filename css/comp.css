@@ -144,6 +144,7 @@ html:fullscreen .ico-wrap use[href$="#act-maximize"] { display: none; }
 /* ==================== 다이얼로그 ==================== */
 .dim { position: fixed; inset: 0; backdrop-filter: blur(4px); animation: fadeIn 0.5s cubic-bezier(0.7, -0.3, 0.2, 1.3) 0s 1 forwards; } 
 .dialog { position: fixed; max-height: 80dvh; padding: 2.4rem 1.6rem; background-color: rgb(var(--bg-200)); border-radius: 0.8rem; display: flex; flex-direction: column; border: 0.1rem solid rgb(var(--brd-300)); animation: slideUp 0.5s cubic-bezier(0.7, -0.3, 0.2, 1.3) 0s 1 forwards; } 
+.dialog.sm { width: 32rem; } 
 .dialog.md { width: 50rem; } 
 .dialog.lg { width: 72rem; } 
 
@@ -204,7 +205,8 @@ html:fullscreen .ico-wrap use[href$="#act-maximize"] { display: none; }
 .md-content hr { border: none; border-top: 0.1rem dashed rgb(var(--brd-700)); margin: 1.2rem 0; } 
 
 @media screen and (max-width: 767px){
- .dialog { max-height: unset; width: 100vw !important; height: calc(100vh - env(safe-area-inset-bottom, 0)); max-height: 100%; border-radius: 0; border: 0; } 
+ .dialog.md,
+ .dialog.lg { max-height: unset; width: 100vw !important; height: calc(100vh - env(safe-area-inset-bottom, 0)); max-height: 100%; border-radius: 0; border: 0; } 
 .ty-masonry { flex-direction: column; } 
 .ty-masonry > * { flex-basis: 100%; } 
 .ty-masonry .box > img { position: static; height: auto; } 

@@ -450,18 +450,21 @@ const dialog = {
     stack: [],
     z: 1000,
     _resizeBound: false,
-    async open({ url, data = {}, size = "md", parent = document.body, dim = true, esc = true, opener = document.activeElement, onClose, onApply } = {}) {
-        if (!url) return;
+    async open({ url, html, data = {}, size = "md", parent = document.body, dim = true, esc = true, opener = document.activeElement, onClose, onApply } = {}) {
+        if (!url && !html) return;
 
         history.pushState({ dialog: true }, "");
 
-        const res = await fetch(url);
-        const html = await res.text();
+        let content = html;
+        if (!content && url) {
+            const res = await fetch(url);
+            content = await res.text();
+        }
 
         const pop = document.createElement("article");
         pop.className = "dialog " + size;
         pop.style.zIndex = ++this.z;
-        pop.innerHTML = html;
+        pop.innerHTML = content;
 
         // data-bind 처리
         if (window.bindData) {
