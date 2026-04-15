@@ -491,7 +491,14 @@ const dialog = {
             close(); // 적용 후 닫기
         };
 
-        pop.querySelector(".dialog-title").innerHTML += `
+        let titleEl = pop.querySelector(".dialog-title");
+        if (!titleEl) {
+            titleEl = document.createElement("div");
+            titleEl.className = "dialog-title";
+            pop.prepend(titleEl);
+        }
+        titleEl.innerHTML += `
+            <p>확인해주세요!</p>
             <button class="ico-wrap pd-4" data-act="close">
                 <svg><use href="#act-close"></use></svg>
             </button>
