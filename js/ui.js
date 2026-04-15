@@ -453,6 +453,7 @@ const dialog = {
     async open(opts = {}) {
         let { url, html, data = {}, size = "md", parent = document.body, dim = true, esc = true, opener = document.activeElement, onClose, onApply } = opts;
         if (!url && !html) return;
+        url = window.BASE + url;
         const type = url && !html ? "popup" : "alert";
         history.pushState({ dialog: true }, "");
 
@@ -462,6 +463,9 @@ const dialog = {
             content = await res.text();
         } else {
             content = `
+                <div class="dialog-title">
+                    <p><svg class="wh-24"><use href="#ui-document"></use></svg>소식</p>
+                </div>
                 <div class="dialog-content alert">${html}</div>
                 <div class="btn-wrap jc-c">
                     <button class="btn sm bg-point" data-act="close">확인</button>
