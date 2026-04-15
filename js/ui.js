@@ -449,151 +449,129 @@ const ui = {
 const dialog = {
     stack: [],
     z: 1000,
-    _resizeBound: false,
-    async open({ url, html, data = {}, size = "md", parent = document.body, dim = true, esc = true, opener = document.activeElement, onClose, onApply } = {}) {
-        if (!url && !html) return;
-
+    async open(opt = {}) {
+        const { type = "popup", url, html, data = {}, size = "md", parent = document.body, dim = true, esc = true, opener = document.activeElement, onClose, onApply } = opt;
+        if (type === "popup" && !url) return;
         history.pushState({ dialog: true }, "");
+        const content = await this.getContent(type, url, html);
 
-        let content = html;
-        if (!content && url) {
-            const res = await fetch(url);
-            content = await res.text();
+        const pop = this.createDialog(content, size);
+        const dimEl = dim ? this.createDim(parent) : null;
+
+        this.bindCommon(pop, { esc, onApply, onClose, opener });
+
+        if (type === "popup") {
+            this.ensureTitle(pop);
+            this.loadModule(url, data, pop);
         }
 
+        parent.append(pop);
+        this.stack.push({ pop, dimEl });
+
+        ui.scrollLock.lock();
+        this.syncDim();
+        this.centerDialog(pop);
+
+        return { pop, close: () => this.close(pop) };
+    },
+    async getContent(type, url, html) {
+        if (type === "popup") {
+            const res = await fetch(url);
+            return await res.text();
+        }
+        if (type === "alert") {
+            return `
+                <div class="dialog-content alert">${html}</div>
+                <div class="btn-wrap">
+                    <button data-act="close">확인</button>
+                </div>
+            `;
+        }
+    },
+    createDialog(html, size) {
         const pop = document.createElement("article");
         pop.className = "dialog " + size;
         pop.style.zIndex = ++this.z;
-        pop.innerHTML = content;
-
-        // data-bind 처리
-        if (window.bindData) {
-            window.bindData(pop, data);
+        pop.innerHTML = html;
+        return pop;
+    },
+    createDim(parent) {
+        const dim = document.createElement("div");
+        dim.className = "dim";
+        dim.style.zIndex = this.z;
+        parent.append(dim);
+        return dim;
+    },
+    ensureTitle(pop) {
+        let el = pop.querySelector(".dialog-title");
+        if (!el) {
+            el = document.createElement("div");
+            el.className = "dialog-title";
+            pop.prepend(el);
         }
-        let dimEl;
-
+        if (!el.querySelector("[data-act='close']")) {
+            el.insertAdjacentHTML(
+                "beforeend",
+                `
+                <button data-act="close">✕</button>
+            `
+            );
+        }
+    },
+    bindCommon(pop, { esc, onApply, onClose, opener }) {
+        const escClose = (e) => esc && e.key === "Escape" && this.close(pop);
         const close = () => {
-            this.stack.pop();
-            dimEl?.remove();
-            pop.remove();
+            this.close(pop);
             opener?.focus();
             onClose?.();
             document.removeEventListener("keydown", escClose);
-
-            if (!this.stack.length) ui.scrollLock.unlock();
-            this.syncDim();
         };
-
-        const escClose = (e) => esc && e.key === "Escape" && this.closeTop();
-
-        const apply = (payload) => {
-            onApply?.(payload);
-            close(); // 적용 후 닫기
-        };
-
-        let titleEl = pop.querySelector(".dialog-title");
-        if (!titleEl) {
-            titleEl = document.createElement("div");
-            titleEl.className = "dialog-title";
-            pop.prepend(titleEl);
-        }
-        titleEl.innerHTML += `
-            <p>확인해주세요!</p>
-            <button class="ico-wrap pd-4" data-act="close">
-                <svg><use href="#act-close"></use></svg>
-            </button>
-        `;
         pop.querySelectorAll("[data-act='close']").forEach((b) => (b.onclick = close));
         pop.querySelectorAll("[data-act='apply']").forEach(
             (b) =>
                 (b.onclick = () => {
                     const payload = window.collectDialogData?.(pop);
-                    apply(payload);
+                    onApply?.(payload);
+                    close();
                 })
         );
-
-        if (dim) {
-            dimEl = document.createElement("div");
-            dimEl.className = "dim";
-            dimEl.style.zIndex = this.z;
-            dimEl.onclick = close;
-            parent.append(dimEl);
-        }
-
         document.addEventListener("keydown", escClose);
-        parent.append(pop);
-        this.loadModule(url, data, pop);
-        this.stack.push({ pop, dimEl, close, apply });
-        ui.scrollLock.lock();
-        this.trapFocus(pop);
-        this.syncDim();
-
-        this.centerDialog(pop);
-        if (!this._resizeBound) {
-            const resizeHandler = ui.debouncer(() => {
-                this.stack.forEach(({ pop }) => this.centerDialog(pop));
-            }, 50);
-            window.addEventListener("resize", resizeHandler);
-            const observer = new ResizeObserver(resizeHandler);
-            this.stack.forEach(({ pop }) => observer.observe(pop));
-            this._observer = observer;
-            this._resizeBound = true;
-        } else {
-            this._observer.observe(pop);
-        }
-        return { pop, close };
     },
-    closeTop() {
-        this.stack.at(-1)?.close();
+    close(pop) {
+        const idx = this.stack.findIndex((s) => s.pop === pop);
+        if (idx === -1) return;
+        const { dimEl } = this.stack[idx];
+        dimEl?.remove();
+        pop.remove();
+        this.stack.splice(idx, 1);
+        if (!this.stack.length) ui.scrollLock.unlock();
+        this.syncDim();
     },
     syncDim() {
         this.stack.forEach((s, i) => {
-            if (s.dimEl) s.dimEl.style.display = i === this.stack.length - 1 ? "block" : "none";
+            if (s.dimEl) {
+                s.dimEl.style.display = i === this.stack.length - 1 ? "block" : "none";
+            }
         });
     },
-    trapFocus(el) {
-        const f = el.querySelectorAll("button,[href],input,select,textarea,[tabindex]:not([tabindex='-1'])");
-        if (!f.length) return;
-
-        const [first, last] = [f[0], f[f.length - 1]];
-        first.focus();
-
-        el.onkeydown = (e) => {
-            if (e.key !== "Tab") return;
-            if (e.shiftKey && document.activeElement === first) {
-                e.preventDefault();
-                last.focus();
-            }
-            if (!e.shiftKey && document.activeElement === last) {
-                e.preventDefault();
-                first.focus();
-            }
-        };
-    },
     centerDialog(pop) {
-        pop.style.left = Math.max((window.innerWidth - pop.offsetWidth) / 2, 0) + "px";
-        pop.style.top = Math.max((window.innerHeight - pop.offsetHeight) / 2, 0) + "px";
+        pop.style.left = Math.max((innerWidth - pop.offsetWidth) / 2, 0) + "px";
+        pop.style.top = Math.max((innerHeight - pop.offsetHeight) / 2, 0) + "px";
     },
     loadModule(url, params, root) {
         if (!url) return;
-        const jsPath = `${location.hostname.includes("github.io") ? "/" + location.pathname.split("/")[1] : ""}${url.replace(/\.html$/, ".js")}?t=${Date.now()}`;
-        const existing = document.querySelector(`script[data-page="${url}"]`);
-        if (existing) existing.remove();
+        const jsPath = url.replace(/\.html$/, ".js") + `?t=${Date.now()}`;
+        const old = document.querySelector(`script[data-page="${url}"]`);
+        old?.remove();
         const script = document.createElement("script");
         script.type = "module";
         script.src = jsPath;
         script.dataset.page = url;
         script.onload = () => {
-            if (window.initModule) {
-                window.initModule({ root, params });
-                delete window.initModule;
-            }
+            window.initModule?.({ root, params });
+            delete window.initModule;
         };
-        script.onerror = (e) => {
-            console.error("Failed to load script:", jsPath, e);
-        };
-
-        document.body.appendChild(script);
+        document.body.append(script);
     },
 };
 
