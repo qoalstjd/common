@@ -464,6 +464,7 @@ const dialog = {
             this.ensureTitle(pop);
             this.loadModule(url, data, pop);
         }
+        if (type === "alert") dim = false;
 
         parent.append(pop);
         this.stack.push({ pop, dimEl });
@@ -482,8 +483,8 @@ const dialog = {
         if (type === "alert") {
             return `
                 <div class="dialog-content alert">${html}</div>
-                <div class="btn-wrap">
-                    <button data-act="close">확인</button>
+                <div class="btn-wrap jc-c">
+                    <button class="btn sm bg-point" data-act="close">확인</button>
                 </div>
             `;
         }
