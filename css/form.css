@@ -2,7 +2,7 @@
 /* ==================== input ==================== */
 .inp { position: relative; } 
 .inp .ico-wrap { position: absolute; right: 0.8rem; top: 50%; transform: translateY(-50%); } 
-.inp.with-ico { padding-right: 3.2rem; }
+.inp.with-ico input { padding-right: 3.2rem; }
 [contenteditable],
 input[type="text"],
 input[type="password"],

@@ -156,6 +156,7 @@ html:fullscreen .ico-wrap use[href$="#act-maximize"] { display: none; }
 .dialog-content.no-scroll { overflow: hidden; display: flex; flex-direction: column; } 
 .dialog-content.no-scroll > * { flex-shrink: 0; } 
 .dialog-content.no-scroll > .scrollable { flex: 1; overflow: auto; } 
+.dialog-content.alert { display: flex; flex-direction: column; justify-content: center; align-items: stretch; text-align: center; }
 .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: rgb(var(--bg-300)); padding: 10px 16px; border-radius: 20px; } 
 /* ==================== 따옴 ==================== */
 .quote { display: flex; flex-direction: column; margin: 1.2rem 0; padding: 0.8rem 1.2rem; border-left: 0.4rem solid rgb(var(--primary-300)); background:rgb(var(--bg-300)); border-radius:0.8rem; } 
