@@ -175,7 +175,9 @@ const bindData = (root, data) => {
             }
             if (type === "src") {
                 const v = el.dataset.src;
-                if (v) el.src = tpl(v);
+                if (!v) return;
+                const value = tpl(v);
+                el.src = value.startsWith("/") ? window.BASE + value : value;
             }
             if (type === "onerror") {
                 const fallback = el.dataset.onerror;

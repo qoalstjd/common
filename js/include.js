@@ -123,6 +123,7 @@ const SPA = {
                 this.main.innerHTML = html;
                 this.main.querySelectorAll("img").forEach((img) => {
                     const src = img.getAttribute("src");
+                    if (!src) return;
                     if (src.startsWith("/")) {
                         img.src = window.BASE + src;
                     }
@@ -130,6 +131,7 @@ const SPA = {
                 window.scrollTo({ top: 0, behavior: "auto" });
                 if (route.lnb !== false) this.renderLNB(dep1Key);
                 this.setActive(params.linkcd);
+                console.log(route, params)
                 this.loadPageScript(route, params);
                 window.ui?.init?.(this.wrap);
                 window.common?.init?.(this.wrap);
@@ -161,10 +163,10 @@ const SPA = {
         script.type = "module";
         script.src = jsPath;
         script.dataset.page = route.path;
-        script.onload = () => {
-            if (window.initModule) {
-                window.initModule({ root: this.main, params });
-                delete window.initModule;
+        script.onload = async () => {
+            const fn = window.initModule;
+            if (typeof fn === "function") {
+                await fn({ root: this.main, params });
             }
         };
         script.onerror = (e) => {
