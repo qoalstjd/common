@@ -62,12 +62,11 @@ const SPA = {
         document.addEventListener("click", (e) => {
             const a = e.target.closest("a");
             if (!a) return;
-            const href = a.getAttribute("href");
-            if (!href) return;
             if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-            if (href.startsWith("#")) {
+            const url = new URL(a.href);
+            if (url.hash) {
                 e.preventDefault();
-                const id = decodeURIComponent(href.slice(1));
+                const id = decodeURIComponent(url.hash.slice(1));
                 let top = 0;
                 if (id !== "top") {
                     const el = document.getElementById(id);
@@ -76,11 +75,9 @@ const SPA = {
                 window.scrollTo({ top });
                 return;
             }
-            const isExternalLink = /^(https?:|mailto:|tel:)/i.test(href);
-            const isInternal = !isExternalLink && (href.startsWith("/") || href.startsWith(window.BASE));
-            if (!isInternal) return;
+            if (url.origin !== location.origin) return;
+            if (url.protocol === "mailto:" || url.protocol === "tel:") return;
             e.preventDefault();
-            const url = new URL(href, location.origin);
             const params = Object.fromEntries(url.searchParams.entries());
             if (!params.linkcd) params.linkcd = DEFAULT_LINKCD;
             sessionStorage.setItem("pageParams", JSON.stringify(params));
