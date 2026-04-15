@@ -152,8 +152,7 @@ const SPA = {
     },
     loadPageScript(route, params) {
         if (!route) return;
-
-        const jsPath = `${window.BASE}${route.path.replace(/\.html$/, ".js")}?t=${Date.now()}`;
+        const jsPath = (window.BASE || "") + route.path.replace(/\.html$/, ".js") + `?t=${Date.now()}`;
 
         const existing = document.querySelector(`script[data-page="${route.path}"]`);
         if (existing) existing.remove();
