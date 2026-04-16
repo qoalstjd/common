@@ -26,7 +26,7 @@ const ui = {
     },
     empty: function (target, boolean, type = "file", msg = "데이터가 없어요") {
         target.classList.toggle("empty", boolean);
-        if (!boolean) {
+        if (boolean) {
             target.dataset.emptyimg = type;
             target.dataset.emptymsg = msg;
         }

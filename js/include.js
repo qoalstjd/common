@@ -133,10 +133,10 @@ const SPA = {
                     }
                 });
                 window.scrollTo({ top: 0, behavior: "auto" });
-                if (route.lnb) {
-                    this.renderLNB(dep1Key);
-                } else {
+                if (route.lnb === false) {
                     this.removeLNB();
+                } else {
+                    this.renderLNB(dep1Key);
                 }
                 this.setActive(params.linkcd);
                 this.loadPageScript(route, params);
