@@ -27,10 +27,14 @@ const SPA = {
         window.ui?.lottie?.msg?.(msg, this.main);
         history.replaceState({ linkcd: "error" }, "", `${window.BASE}/`);
     },
-    // LNB 렌더링 (dep1key)
-    renderLNB(dep1Key) {
+    // LNB 삭제
+    removeLNB() {
         const lnb = this.wrap.querySelector(".lnb");
         lnb?.remove();
+    },
+    // LNB 렌더링 (dep1key)
+    renderLNB(dep1Key) {
+        this.removeLNB();
         const items = Object.entries(this.routes)
             .filter(([key, r]) => r.parent?.includes(dep1Key) && r.depth === 2)
             .map(([key, r]) => `<li><a href="${window.BASE}/index.html?linkcd=${key}">${r.name}</a></li>`);
@@ -129,9 +133,12 @@ const SPA = {
                     }
                 });
                 window.scrollTo({ top: 0, behavior: "auto" });
-                if (route.lnb !== false) this.renderLNB(dep1Key);
+                if (route.lnb) {
+                    this.renderLNB(dep1Key);
+                } else {
+                    this.removeLNB();
+                }
                 this.setActive(params.linkcd);
-                console.log(route, params)
                 this.loadPageScript(route, params);
                 window.ui?.init?.(this.wrap);
                 window.common?.init?.(this.wrap);

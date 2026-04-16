@@ -24,6 +24,13 @@ const ui = {
     loading: function (target, boolean) {
         target.classList.toggle("loading", boolean);
     },
+    empty: function (target, boolean, type = "file", msg = "데이터가 없어요") {
+        target.classList.toggle("empty", boolean);
+        if (!boolean) {
+            target.dataset.emptyimg = type;
+            target.dataset.emptymsg = msg;
+        }
+    },
     debouncer: function (fn, delay = 200) {
         let timer;
         return (...args) => {
@@ -227,7 +234,6 @@ const ui = {
                 buttons.forEach((el, i) => {
                     height += el.offsetHeight;
                 });
-                console.log();
                 return height;
             }
             function open() {
