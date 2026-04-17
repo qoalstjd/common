@@ -39,10 +39,12 @@ html:fullscreen .ico-wrap use[href$="#act-maximize"] { display: none; }
 /* ==================== 티커 ==================== */
 .ticker { display: flex; align-items: center; flex-wrap: nowrap; font-size: 1.4rem; white-space: nowrap; } 
 .ticker > * { flex-shrink: 0; margin-left: 0.4rem; } 
+.ticker strong { font-weight: 400; }
+.ticker em { text-decoration: none; }
 .ticker strong,
 .ticker svg + span { margin-left: 0; } 
-.ticker.is-up use[href="#dir-caret-down"] { display: none; } 
-.ticker.is-down use[href="#dir-caret-up"] { display: none; } 
+.ticker.is-up use[href="#dir-caret-down-fill"] { display: none; } 
+.ticker.is-down use[href="#dir-caret-up-fill"] { display: none; } 
 .ticker.is-up svg,
 .ticker.is-up span { color: rgb(var(--red-500)); } 
 .ticker.is-down svg,

@@ -13,8 +13,6 @@ h1,h2,h3,h4,h5,h6 { font-size:100%; }
 cite,em,dfn,address,i { font-style:normal; } 
 blockquote,q { quotes:none; } 
 del { text-decoration:line-through; } 
-strong,b { font-weight:normal; } 
-em { text-decoration:none; } 
 /* ==================== INPUT ==================== */
 input[type="text"] { outline:none; } 
 /* ==================== LIST ==================== */
