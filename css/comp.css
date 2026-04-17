@@ -36,6 +36,21 @@ html:not(:fullscreen) .ico-wrap use[href$="#act-minimize"] { display: none; }
 html:fullscreen .ico-wrap use[href$="#act-maximize"] { display: none; } 
 [data-sort="asc"] use[href$="#dir-caret-down"] { display: none; } 
 [data-sort="desc"] use[href$="#dir-caret-up"] { display: none; } 
+/* ==================== 티커 ==================== */
+.ticker { display: flex; align-items: center; flex-wrap: nowrap; font-size: 1.4rem; white-space: nowrap; } 
+.ticker > * { flex-shrink: 0; margin-left: 0.4rem; } 
+.ticker strong,
+.ticker svg + span { margin-left: 0; } 
+.ticker.is-up use[href="#dir-caret-down"] { display: none; } 
+.ticker.is-down use[href="#dir-caret-up"] { display: none; } 
+.ticker.is-up svg,
+.ticker.is-up span { color: rgb(var(--red-500)); } 
+.ticker.is-down svg,
+.ticker.is-down span { color: rgb(var(--blue-500)); } 
+@keyframes ticker { 
+ from { transform: translateX(0); } 
+ to { transform: translateX(calc(var(--w) * -1)); } 
+ }
 /* ==================== 툴팁 ==================== */
 [data-tip] { position: relative; } 
 [data-tip]::after { display: none; content: attr(data-tip); position: absolute; top: calc(100% + 4px); left: 50%; transform: translateX(-50%); width: fit-content; white-space: nowrap; background-color: rgb(var(--bg-100)); border: 1px solid rgb(var(--brd-500)); padding: 5px 7px; border-radius: 4px; font-size: 1.2rem; font-weight: 700; z-index: 10; color: rgb(var(--txt-700)); } 
