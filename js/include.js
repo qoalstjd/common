@@ -5,6 +5,7 @@ const SPA = {
     wrap: document.querySelector(".wrap"),
     main: document.querySelector(".wrap > main"),
     routes: {},
+    _cleanup: null,
     // linkcd 가져오기: history.state → sessionStorage → 기본값
     getLinkcd() {
         return history.state?.linkcd || sessionStorage.getItem("linkcd") || DEFAULT_LINKCD;
@@ -161,6 +162,10 @@ const SPA = {
     },
     loadPageScript(route, params) {
         if (!route) return;
+
+        this._cleanup?.();
+        this._cleanup = null;
+
         const jsPath = (window.BASE || "") + route.path.replace(/\.html$/, ".js") + `?t=${Date.now()}`;
 
         const existing = document.querySelector(`script[data-page="${route.path}"]`);

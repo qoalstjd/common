@@ -197,12 +197,12 @@
     <symbol id="dir-caret-up-fill" viewBox="0 0 24 24">
         <title>dir-caret-up-fill</title>
         <desc>삼각형 위 채움</desc>
-        <path d="M18 14L12 8L6 14H18Z" fill="black" />
+        <path d="M18 14L12 8L6 14H18Z" fill="currentColor" stroke="none" />
     </symbol>
     <symbol id="dir-caret-down-fill" viewBox="0 0 24 24">
         <title>dir-caret-down-fill</title>
         <desc>삼각형 아래 채움</desc>
-        <path d="M6 10L12 16L18 10H6Z" fill="black" />
+        <path d="M6 10L12 16L18 10H6Z" fill="currentColor" stroke="none" />
     </symbol>
 
     <!-- ==================== Media ==================== -->
