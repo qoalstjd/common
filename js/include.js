@@ -178,7 +178,7 @@ const SPA = {
         script.onload = async () => {
             const fn = window.initModule;
             if (typeof fn === "function") {
-                await fn({ root: this.main, params });
+                this._cleanup = await fn({ root: this.main, params });
             }
         };
         script.onerror = (e) => {
