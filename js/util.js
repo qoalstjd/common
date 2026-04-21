@@ -185,7 +185,9 @@ const bindData = (root, data) => {
                 if (!fallback) return;
                 el.onerror = () => {
                     el.onerror = null;
-                    el.src = tpl(fallback);
+                    const value = tpl(fallback);
+                    const isAbs = /^(https?:)?\/\//.test(value);
+                    el.src = isAbs ? value : window.BASE + "/" + value.replace(/^\/?/, "");
                 };
             }
         });
