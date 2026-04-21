@@ -171,13 +171,14 @@ const bindData = (root, data) => {
             if (type === "html") el.innerHTML = tpl(el.innerHTML);
             if (type === "href") {
                 const v = el.getAttribute("href");
-                if (v) el.href = tpl(v);
+                if (v) el.href = new URL(tpl(v), location.origin).href;
             }
             if (type === "src") {
                 const v = el.dataset.src;
                 if (!v) return;
                 const value = tpl(v);
-                el.src = value.startsWith("/") ? window.BASE + value : value;
+                const isAbs = /^(https?:)?\/\//.test(value);
+                el.src = isAbs ? value : window.BASE + "/" + value.replace(/^\/?/, "");
             }
             if (type === "onerror") {
                 const fallback = el.dataset.onerror;
@@ -200,7 +201,7 @@ const formatDate = (input = new Date(), format = "YYYY-MM-DD HH:mm:ss") => {
         date = input instanceof Date ? input : new Date(input);
     }
 
-    if (isNaN(date)) return "";
+    if (!(date instanceof Date) || isNaN(date.getTime())) return "";
 
     const y = date.getFullYear();
     const m = date.getMonth() + 1;

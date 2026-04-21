@@ -53,6 +53,7 @@ html:fullscreen .ico-wrap use[href$="#act-maximize"] { display: none; }
 [data-tip] { position: relative; } 
 [data-tip]::after { display: none; content: attr(data-tip); position: absolute; top: calc(100% + 4px); left: 50%; transform: translateX(-50%); width: fit-content; white-space: nowrap; background-color: rgb(var(--bg-100)); border: 1px solid rgb(var(--brd-500)); padding: 5px 7px; border-radius: 4px; font-size: 1.2rem; font-weight: 700; z-index: 10; color: rgb(var(--txt-700)); } 
 [data-tip]:hover::after { display: block; } 
+[data-tip][data-tip-pos="top"]::after { top: unset; bottom: calc(100% + 4px); }
 /* ==================== 로띠 ==================== */
 .lottie-wrap { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 32rem; } 
 /* ==================== 버튼 ==================== */
