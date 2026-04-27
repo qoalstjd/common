@@ -41,9 +41,9 @@ const ui = {
     detectOS: function () {
         ui.isMobile = /iphone|ipod|ipad|android/i.test(navigator.userAgent);
         if (ui.isMobile) {
-            document.documentElement.dataset.env = "pc";
-        } else {
             document.documentElement.dataset.env = "mo";
+        } else {
+            document.documentElement.dataset.env = "pc";
         }
     },
     scrollLock: {
