@@ -25,6 +25,7 @@ const SPA = {
             503: ["서비스 점검 중입니다.", "잠시 후 다시 이용해주세요."],
             default: ["요청을 처리할 수 없습니다.", "다시 시도해주세요."],
         }[code] || ["요청을 처리할 수 없습니다.", "다시 시도해주세요."];
+        this.removeLNB();
         window.ui?.lottie?.msg?.(msg, this.main);
         history.replaceState({ linkcd: "error" }, "", `${window.BASE}/`);
     },

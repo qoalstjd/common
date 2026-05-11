@@ -60,7 +60,7 @@ html:fullscreen .ico-wrap use[href$="#act-maximize"] { display: none; }
 .btn-wrap { display: flex; align-items: center; gap: 0.6rem; margin-top: 4rem; } 
 .btn-wrap .btn { min-width: 10rem; } 
 .btn { position: relative; display: inline-flex; justify-content: center; align-items: center; gap: 0.4rem; padding: 0 1.2rem; border-radius: 0.4rem; font-weight: 700; background-color: rgb(var(--bg-400)); } 
-.btn.line { border: 0.1rem solid rgb(var(--brd-900)); background: none; } 
+.btn.line { border: 0.1rem solid currentColor; background: none; } 
 .btn:disabled { opacity: 0.5; } 
 .btn.xs { height: 2.4rem; padding: 0 0.8rem; font-size: 1.2rem; } 
 .btn.sm { height: 3.2rem; padding: 0 1rem; font-size: 1.4rem; } 
